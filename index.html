@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Tech SkillUp | Odair Bonin</title>
+<title>Tech SkillUp | Sprint IA 30 dias</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Mentoria em IA e em liderança para pequenas empresas e startups. Odair Bonin, 25 anos em tecnologia, ajuda donos e líderes a aplicar IA no dia a dia e a formar quem lidera os times.">
-<meta property="og:title" content="Tech SkillUp | Mentoria em IA e liderança para pequenas empresas">
-<meta property="og:description" content="Mentoria para donos e líderes de pequenas empresas que querem usar IA com método e preparar quem lidera os times. Diagnóstico gratuito de 30 minutos.">
+<meta name="description" content="Sprint IA 30 dias: em quatro semanas, sua pequena empresa sai com dois processos rodando com IA, o time treinado e o ganho medido. Conduzido por Odair Bonin, 25 anos em tecnologia.">
+<meta property="og:title" content="Sprint IA 30 dias | Tech SkillUp">
+<meta property="og:description" content="95% das empresas não veem retorno com IA. Em 30 dias, a sua sai com dois processos rodando com IA, o time treinado e o ganho medido.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://techskillup.com.br/">
 <meta property="og:image" content="https://techskillup.com.br/palco.jpg">
@@ -17,14 +17,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;600&display=swap">
 <style>
-/* Layout: navy hero band with stage photo, then calm light sections; the brand chevron marks real steps (weeks, career). */
+/* Layout: navy hero sells one product; light sections alternate evidence (research) and method; the brand chevron = product levels. */
 :root{
   --brand-blue:#3b6fe0; --brand-blue-ink:#2a57c4;
   --brand-orange:#e8833a; --brand-orange-ink:#b85a16;
-  --navy:#14213d; --on-navy:#f7f6f2; --on-navy-muted:#bfc8da;
+  --navy:#14213d; --on-navy:#f7f6f2; --on-navy-muted:#bfc8da; --navy-line:rgba(247,246,242,.16);
   --surface:#f7f6f2; --surface-raised:#ffffff; --tint-blue:#e6edfc;
   --ink:#14213d; --ink-muted:#4a5568; --border:#e2e0d8;
-  --todo-bg:#fff1e3; --todo-ink:#8a4210;
   --shadow-card:0 10px 30px rgba(20,33,61,.08);
   --font-display:"Space Grotesk", Arial, sans-serif;
   --font-sans:Inter, Arial, sans-serif;
@@ -35,186 +34,194 @@
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --brand-blue:#8fb0ff; --brand-blue-ink:#a9c2ff; --brand-orange:#f0964f; --brand-orange-ink:#ffb27a;
   --navy:#0b1426; --surface:#14213d; --surface-raised:#1c2b4d; --tint-blue:#22356a;
-  --ink:#f7f6f2; --ink-muted:#bfc8da; --border:#2e3d5e; --todo-bg:#4a2a10; --todo-ink:#ffd2ad;
-  --shadow-card:0 10px 30px rgba(0,0,0,.35); color-scheme:dark}}
+  --ink:#f7f6f2; --ink-muted:#bfc8da; --border:#2e3d5e; --shadow-card:0 10px 30px rgba(0,0,0,.35); color-scheme:dark}}
 :root[data-theme="dark"]{
   --brand-blue:#8fb0ff; --brand-blue-ink:#a9c2ff; --brand-orange:#f0964f; --brand-orange-ink:#ffb27a;
   --navy:#0b1426; --surface:#14213d; --surface-raised:#1c2b4d; --tint-blue:#22356a;
-  --ink:#f7f6f2; --ink-muted:#bfc8da; --border:#2e3d5e; --todo-bg:#4a2a10; --todo-ink:#ffd2ad;
-  --shadow-card:0 10px 30px rgba(0,0,0,.35); color-scheme:dark}
+  --ink:#f7f6f2; --ink-muted:#bfc8da; --border:#2e3d5e; --shadow-card:0 10px 30px rgba(0,0,0,.35); color-scheme:dark}
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 body{margin:0;background:var(--surface);color:var(--ink);font:400 16px/26px var(--font-sans);-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--navy)}
 img{max-width:100%;display:block}
 a{color:var(--brand-blue-ink)}
-a:focus-visible,button:focus-visible{outline:3px solid var(--brand-orange);outline-offset:3px;border-radius:var(--radius-sm)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--brand-orange);outline-offset:3px;border-radius:var(--radius-sm)}
 h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0}
 p{margin:0}
 .wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .label{font:600 12px/16px var(--font-sans);letter-spacing:1.5px;text-transform:uppercase;color:var(--brand-orange-ink)}
 .section{padding-block:clamp(56px,8vw,96px)}
-.section-head{display:grid;gap:var(--space-2);max-width:720px;margin-bottom:var(--space-6)}
+.alt{background:var(--surface-raised);border-block:1px solid var(--border)}
+.section-head{display:grid;gap:var(--space-2);max-width:740px;margin-bottom:var(--space-6)}
 .section-head h2{font-size:clamp(28px,4vw,40px);line-height:1.15;font-weight:600}
 .section-head p{color:var(--ink-muted);font-size:18px;line-height:28px}
-.todo{background:var(--todo-bg);color:var(--todo-ink);border-radius:4px;padding:0 4px;font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);font:600 15px/1.2 var(--font-sans);padding:14px 20px;border-radius:var(--radius-md);text-decoration:none;border:2px solid transparent;cursor:pointer;text-align:center}
+.btn-primary{background:var(--brand-orange);color:#14213d}
+.btn-primary:hover{filter:brightness(1.06)}
+.btn-ghost{border-color:rgba(247,246,242,.35);color:var(--on-navy)}
+.btn-ghost:hover{border-color:var(--on-navy)}
+.btn-outline{border-color:var(--brand-blue-ink);color:var(--brand-blue-ink)}
+.chev-ico{width:22px;height:22px;flex:none}
 
 /* Header */
-.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--navy);border-bottom:1px solid rgba(247,246,242,.08)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--navy);border-bottom:1px solid var(--navy-line)}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);padding-block:14px}
 .top img{height:34px;width:auto}
 .nav{display:flex;align-items:center;gap:var(--space-4)}
 .nav a{color:var(--on-navy-muted);text-decoration:none;font-weight:600;font-size:14px}
 .nav a:hover{color:var(--on-navy)}
-.btn{display:inline-flex;align-items:center;gap:var(--space-2);font:600 15px/1 var(--font-sans);padding:14px 20px;border-radius:var(--radius-md);text-decoration:none;border:2px solid transparent;cursor:pointer}
-.btn-primary{background:var(--brand-orange);color:#14213d}
-.btn-primary:hover{filter:brightness(1.06)}
-.btn-ghost{border-color:rgba(247,246,242,.35);color:var(--on-navy)}
-.btn-ghost:hover{border-color:var(--on-navy)}
 .nav .btn{padding:10px 16px;font-size:14px;color:#14213d;white-space:nowrap}
-@media (max-width:860px){.nav a:not(.btn){display:none}}
+@media (max-width:900px){.nav a:not(.btn){display:none}}
 
 /* Hero */
 .hero{background:var(--navy);color:var(--on-navy);overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,64px);align-items:center;padding-block:clamp(48px,7vw,88px)}
+.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(32px,5vw,64px);align-items:center;padding-block:clamp(40px,6vw,80px)}
 .hero-copy{display:grid;gap:var(--space-4);min-width:0}
 .hero .label{color:var(--brand-orange)}
-.hero h1{font-size:clamp(36px,5.4vw,60px);line-height:1.06;letter-spacing:-1px;font-weight:700}
+.hero h1{font-size:clamp(34px,5vw,56px);line-height:1.06;letter-spacing:-1px;font-weight:700}
 .hero h1 em{font-style:normal;color:var(--brand-orange)}
-.hero-sub{font-size:19px;line-height:30px;color:var(--on-navy-muted);max-width:56ch}
-.hero-ctas{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-2)}
-.proof{display:flex;flex-wrap:wrap;gap:var(--space-2);margin-top:var(--space-3);padding:0;list-style:none}
-.proof li{font-size:13px;line-height:18px;padding:8px 12px;border-radius:var(--radius-pill);border:1px solid rgba(247,246,242,.18);color:var(--on-navy)}
-.hero-photo{position:relative;justify-self:end;width:100%;max-width:420px}
-.hero-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:var(--radius-lg)}
+.hero-sub{font-size:19px;line-height:30px;color:var(--on-navy-muted);max-width:58ch}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:var(--space-3)}
+.scarce{display:flex;align-items:center;gap:var(--space-2);font-size:14px;line-height:20px;color:var(--on-navy)}
+.scarce i{width:8px;height:8px;border-radius:50%;background:var(--brand-orange);box-shadow:0 0 0 4px rgba(232,131,58,.25);flex:none}
+.hero-photo{position:relative;justify-self:end;width:100%;max-width:400px;margin:0}
+.hero-photo img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:var(--radius-lg)}
 .hero-photo figcaption{font-size:12px;color:var(--on-navy-muted);margin-top:var(--space-2);text-align:right}
-.chev{position:absolute;left:-28px;bottom:36px;width:84px;height:auto}
-@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero-photo{justify-self:start;max-width:360px}.chev{left:auto;right:-16px}}
+.hero-badge{position:absolute;left:-24px;bottom:40px;display:grid;gap:2px;padding:14px 16px;border-radius:var(--radius-md);background:var(--surface-raised);color:var(--ink);box-shadow:var(--shadow-card);max-width:230px}
+.hero-badge b{font-family:var(--font-display);font-size:15px;line-height:20px}
+.hero-badge span{font-size:13px;line-height:18px;color:var(--ink-muted)}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero-photo{justify-self:start;max-width:340px}.hero-badge{left:auto;right:-8px}}
 
-/* Stats */
-.stats{background:var(--surface-raised);border-bottom:1px solid var(--border)}
-.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4);padding-block:var(--space-5)}
-.stats div{display:grid;gap:4px;min-width:0}
-.stats strong{font:700 clamp(30px,3.6vw,40px)/1.1 var(--font-display);color:var(--brand-blue-ink);font-variant-numeric:tabular-nums}
-.stats span{color:var(--ink-muted);font-size:14px;line-height:20px}
-@media (max-width:760px){.stats .wrap{grid-template-columns:1fr 1fr}}
-.rating strong{font-family:var(--font-display);color:var(--brand-orange-ink)}
+/* Proof strip */
+.proof{background:var(--surface-raised);border-bottom:1px solid var(--border)}
+.proof .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4);padding-block:var(--space-5)}
+.proof div{display:grid;gap:4px;min-width:0}
+.proof strong{font:700 clamp(28px,3.4vw,38px)/1.1 var(--font-display);color:var(--brand-blue-ink);font-variant-numeric:tabular-nums}
+.proof span{color:var(--ink-muted);font-size:14px;line-height:20px}
+@media (max-width:760px){.proof .wrap{grid-template-columns:1fr 1fr}}
 
-/* Problem */
-.pains{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)}
-.pain{display:grid;gap:var(--space-2);align-content:start;padding-top:var(--space-4);border-top:2px solid var(--ink)}
-.pain h3{font-size:20px;line-height:26px;font-weight:600}
-.pain p{color:var(--ink-muted)}
-@media (max-width:860px){.pains{grid-template-columns:1fr;gap:var(--space-4)}}
+/* Research */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-3)}
+.stat{display:grid;grid-template-rows:auto 1fr auto;gap:var(--space-2);padding:var(--space-4);border-radius:var(--radius-lg);background:var(--surface-raised);box-shadow:var(--shadow-card);min-width:0}
+.stat strong{font:700 clamp(40px,5vw,56px)/1 var(--font-display);color:var(--brand-blue-ink);letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.stat.hot strong{color:var(--brand-orange-ink)}
+.stat p{font-size:15px;line-height:23px}
+.stat cite{font-style:normal;font-size:12px;line-height:17px;color:var(--ink-muted);padding-top:var(--space-2);border-top:1px solid var(--border)}
+.stat cite a{color:inherit}
+@media (max-width:980px){.stats{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.stats{grid-template-columns:1fr}}
+.fails{margin-top:var(--space-6);display:grid;border-top:2px solid var(--ink)}
+.fail{display:grid;grid-template-columns:48px 1fr 1fr;gap:var(--space-4);padding-block:var(--space-4);border-bottom:1px solid var(--border);align-items:start}
+.fail .n{font:700 28px/1 var(--font-display);color:var(--ink-muted)}
+.fail h3{font-size:20px;line-height:26px;font-weight:600}
+.fail p{color:var(--ink-muted);font-size:15px;line-height:23px;margin-top:6px}
+.fix{display:grid;gap:6px;padding:var(--space-3);border-radius:var(--radius-md);background:var(--tint-blue)}
+.fix b{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--brand-blue-ink)}
+.fix span{font-size:15px;line-height:23px}
+@media (max-width:760px){.fail{grid-template-columns:1fr;gap:var(--space-3)}.fail .n{font-size:20px}}
 
-/* Services */
-.services{background:var(--surface-raised);border-block:1px solid var(--border)}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4)}
-.card{display:grid;gap:var(--space-3);align-content:start;padding:var(--space-5) var(--space-4);border-radius:var(--radius-lg);background:var(--surface);min-width:0}
-.card svg{width:36px;height:36px;stroke:var(--brand-blue);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.card h3{font-size:22px;line-height:28px;font-weight:600}
-.card p{color:var(--ink-muted)}
-.card ul{margin:0;padding-left:18px;color:var(--ink);display:grid;gap:6px;font-size:15px;line-height:22px}
-.card ul li::marker{color:var(--brand-blue)}
-@media (max-width:900px){.cards{grid-template-columns:1fr}}
-
-/* Method: 4 weeks */
-.weeks{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4);list-style:none;margin:0;padding:0}
-.week{display:grid;gap:var(--space-2);align-content:start;min-width:0}
-.week-mark{display:flex;align-items:center;gap:var(--space-2)}
-.week-mark svg{width:30px;height:30px;flex:none}
-.week-mark span{font:600 12px/16px var(--font-sans);letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-muted)}
+/* Product */
+.product{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,5vw,64px);align-items:start}
+.product-intro{display:grid;gap:var(--space-4);position:sticky;top:96px;min-width:0}
+.product-intro h2{font-size:clamp(30px,4.2vw,44px);line-height:1.1;font-weight:700}
+.product-intro > p{color:var(--ink-muted);font-size:18px;line-height:28px}
+.product-intro .btn{justify-self:start}
+.deliver{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.deliver li{display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:15px;line-height:23px}
+.weeks{list-style:none;margin:0;padding:0;display:grid;gap:var(--space-3)}
+.week{display:grid;grid-template-columns:auto 1fr;gap:var(--space-4);padding:var(--space-4);border-radius:var(--radius-lg);background:var(--surface-raised);border:1px solid var(--border);min-width:0}
+.week-num{display:grid;justify-items:center;align-content:start;gap:6px;min-width:64px}
+.week-num svg{width:40px;height:40px}
+.week-num span{font:600 11px/14px var(--font-sans);letter-spacing:1.2px;text-transform:uppercase;color:var(--ink-muted);text-align:center}
 .week h3{font-size:20px;line-height:26px;font-weight:600}
-.week p{color:var(--ink-muted);font-size:15px;line-height:24px}
-.week:last-child .week-mark span{color:var(--brand-orange-ink)}
-.callout{margin-top:var(--space-6);display:grid;grid-template-columns:auto 1fr;gap:var(--space-4);align-items:start;padding:var(--space-4);border-radius:var(--radius-md);background:var(--tint-blue)}
-.callout strong{font-family:var(--font-display);font-size:28px;line-height:1;color:var(--brand-blue-ink);white-space:nowrap}
-.callout p{max-width:70ch}
-@media (max-width:900px){.weeks{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:520px){.weeks{grid-template-columns:1fr}.callout{grid-template-columns:1fr}}
+.week p{color:var(--ink-muted);font-size:15px;line-height:23px;margin-top:6px}
+.week .out{margin-top:10px;font-size:14px;line-height:21px;color:var(--ink)}
+.week .out b{color:var(--brand-blue-ink)}
+.fit{margin-top:var(--space-6);display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)}
+.fit div{padding:var(--space-4);border-radius:var(--radius-lg);border:1px solid var(--border);background:var(--surface)}
+.fit h3{font-size:18px;margin-bottom:var(--space-2)}
+.fit ul{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--ink-muted);font-size:15px;line-height:23px}
+@media (max-width:900px){.product{grid-template-columns:1fr}.product-intro{position:static}.fit{grid-template-columns:1fr}}
 
-/* Case */
-.case{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5);padding:clamp(24px,4vw,48px);border-radius:var(--radius-lg);background:var(--navy);color:var(--on-navy)}
-.case .label{color:var(--brand-orange)}
-.case h3{font-size:clamp(24px,3vw,32px);line-height:1.2;font-weight:600;margin-top:var(--space-2)}
-.case p{color:var(--on-navy-muted)}
-.case dl{margin:0;display:grid;gap:var(--space-3)}
-.case dt{font:600 12px/16px var(--font-sans);letter-spacing:1.5px;text-transform:uppercase;color:var(--on-navy-muted)}
-.case dd{margin:4px 0 0;color:var(--on-navy)}
-@media (max-width:860px){.case{grid-template-columns:1fr}}
+/* Levels */
+.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4);align-items:stretch}
+.level{display:grid;grid-template-rows:auto auto 1fr auto auto;gap:var(--space-3);padding:var(--space-5) var(--space-4);border-radius:var(--radius-lg);background:var(--surface-raised);border:1px solid var(--border);min-width:0}
+.level.main{border:2px solid var(--brand-orange);box-shadow:var(--shadow-card)}
+.level-top{display:flex;align-items:center;justify-content:space-between;gap:var(--space-2)}
+.level-top svg{width:44px;height:44px}
+.pill{font:600 12px/16px var(--font-sans);padding:5px 10px;border-radius:var(--radius-pill);background:var(--tint-blue);color:var(--brand-blue-ink);white-space:nowrap}
+.level.main .pill{background:var(--brand-orange);color:#14213d}
+.level h3{font-size:24px;line-height:30px;font-weight:700}
+.level .sub{color:var(--ink-muted);font-size:15px;line-height:23px;margin-top:4px}
+.level ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:15px;line-height:23px;align-content:start}
+.level ul li::marker{color:var(--brand-blue)}
+.level .meta{display:grid;gap:4px;padding-top:var(--space-3);border-top:1px solid var(--border);font-size:14px;line-height:20px;color:var(--ink-muted)}
+.level .meta b{color:var(--ink)}
+@media (max-width:980px){.levels{grid-template-columns:1fr}}
 
-/* About + timeline */
-.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,5vw,64px);align-items:start}
-.about-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--radius-lg)}
-.about-copy{display:grid;gap:var(--space-4);min-width:0}
-.about-copy h2{font-size:clamp(28px,4vw,40px);line-height:1.15;font-weight:600}
-.about-copy > p{font-size:18px;line-height:29px;color:var(--ink-muted);max-width:62ch}
-.timeline{list-style:none;margin:var(--space-3) 0 0;padding:0;display:grid;gap:0}
-.timeline li{display:grid;grid-template-columns:96px 1fr;gap:var(--space-3);padding-block:var(--space-3);border-top:1px solid var(--border)}
-.timeline time{font:600 14px/22px var(--font-display);color:var(--brand-blue-ink);font-variant-numeric:tabular-nums}
-.timeline b{display:block;font-weight:600}
-.timeline span{color:var(--ink-muted);font-size:15px;line-height:23px}
-@media (max-width:860px){.about{grid-template-columns:1fr}.about-photo{max-width:360px}}
+/* Authority */
+.auth{display:grid;grid-template-columns:.75fr 1.25fr;gap:clamp(32px,5vw,64px);align-items:start}
+.auth-photo{margin:0}
+.auth-photo img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:var(--radius-lg)}
+.auth-copy{display:grid;gap:var(--space-4);min-width:0}
+.auth-copy h2{font-size:clamp(28px,4vw,40px);line-height:1.15;font-weight:600}
+.auth-copy > p{font-size:18px;line-height:29px;color:var(--ink-muted);max-width:62ch}
+.cases{display:grid;border-top:2px solid var(--ink)}
+.case{display:grid;grid-template-columns:200px 1fr;gap:var(--space-4);padding-block:var(--space-3);border-bottom:1px solid var(--border)}
+.case b{font-family:var(--font-display);font-size:16px;line-height:22px}
+.case b small{display:block;font:600 12px/16px var(--font-sans);letter-spacing:1px;text-transform:uppercase;color:var(--ink-muted);margin-top:2px}
+.case span{font-size:15px;line-height:23px}
+.case strong{color:var(--brand-blue-ink)}
+.creds{display:flex;flex-wrap:wrap;gap:var(--space-2);list-style:none;margin:0;padding:0}
+.creds li{font-size:14px;line-height:20px;padding:8px 12px;border-radius:var(--radius-pill);background:var(--surface);border:1px solid var(--border)}
+@media (max-width:860px){.auth{grid-template-columns:1fr}.auth-photo{max-width:340px}.case{grid-template-columns:1fr;gap:4px}}
 
-/* Teaching */
-.teach{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-3);margin-top:var(--space-4)}
-.teach div{padding:var(--space-4);border-radius:var(--radius-md);background:var(--surface-raised);box-shadow:var(--shadow-card)}
-.teach b{display:block;font-family:var(--font-display);font-size:19px;line-height:25px;font-weight:600;margin-bottom:6px}
-.teach span{color:var(--ink-muted);font-size:15px;line-height:23px}
-@media (max-width:760px){.teach{grid-template-columns:1fr}}
-
-/* Gallery */
-.gallery{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:180px;gap:var(--space-3)}
+/* Gallery + ebook */
+.gallery{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:170px;gap:var(--space-3)}
 .gallery figure{margin:0;position:relative;overflow:hidden;border-radius:var(--radius-md);background:var(--border)}
 .gallery img{width:100%;height:100%;object-fit:cover}
 .gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 12px 10px;font-size:13px;line-height:18px;color:#f7f6f2;background:linear-gradient(transparent,rgba(11,20,38,.85))}
-.g1{grid-column:span 4;grid-row:span 2}.g2{grid-column:span 2;grid-row:span 2}
-.g3{grid-column:span 2;grid-row:span 2}.g4{grid-column:span 2;grid-row:span 2}.g5{grid-column:span 2;grid-row:span 2}
-@media (max-width:760px){.gallery{grid-template-columns:1fr 1fr;grid-auto-rows:160px}.g1{grid-column:span 2}.g2,.g3,.g4,.g5{grid-column:span 1}}
-
-/* Ebook */
-.ebook{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,5vw,56px);align-items:center}
-.ebook img{width:clamp(160px,22vw,240px);height:auto;aspect-ratio:440/700;object-fit:cover;border-radius:var(--radius-sm);box-shadow:var(--shadow-card)}
+.g1{grid-column:span 3;grid-row:span 2}.g2,.g3{grid-column:span 3}
+@media (max-width:760px){.gallery{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.g1{grid-column:span 2}.g2,.g3{grid-column:span 1}}
+.ebook{margin-top:var(--space-6);display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,5vw,56px);align-items:center}
+.ebook img{width:clamp(150px,20vw,210px);height:auto;aspect-ratio:440/700;object-fit:cover;border-radius:var(--radius-sm);box-shadow:var(--shadow-card)}
 .ebook-copy{display:grid;gap:var(--space-3);min-width:0}
-.ebook-copy h2{font-size:clamp(26px,3.6vw,36px);line-height:1.15;font-weight:600}
+.ebook-copy h3{font-size:clamp(24px,3.2vw,32px);line-height:1.15;font-weight:600}
 .ebook-copy p{color:var(--ink-muted);max-width:60ch}
-.btn-blue{background:var(--brand-blue-ink);color:#fff;justify-self:start}
-.btn-outline{border-color:var(--brand-blue-ink);color:var(--brand-blue-ink)}
+.ebook-ctas{display:flex;flex-wrap:wrap;gap:var(--space-3)}
+.btn-blue{background:var(--brand-blue-ink);color:#fff}
 :root[data-theme="dark"] .btn-blue{color:#14213d}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn-blue{color:#14213d}}
 @media (max-width:620px){.ebook{grid-template-columns:1fr}}
 
-/* Mentorias */
-.cards-2{grid-template-columns:repeat(2,1fr)}
-.card .for{font-size:13px;line-height:18px;font-weight:600;color:var(--brand-blue-ink);padding-top:var(--space-2);border-top:1px solid var(--border)}
-.extra{margin-top:var(--space-4);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-3);padding:var(--space-4);border-radius:var(--radius-md);background:var(--tint-blue)}
-.extra div{display:grid;gap:4px;max-width:70ch;min-width:0}
-.extra b{font-family:var(--font-display);font-size:18px}
-.extra span{color:var(--ink-muted);font-size:15px;line-height:23px}
-.extra a{font-weight:600;color:var(--brand-blue-ink)}
-@media (max-width:900px){.cards-2{grid-template-columns:1fr}}
+/* FAQ */
+.faq{display:grid;max-width:860px;border-top:1px solid var(--border)}
+.faq details{border-bottom:1px solid var(--border)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:var(--space-3);padding-block:20px;font:600 18px/26px var(--font-display)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:24px;color:var(--brand-blue-ink);flex:none}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding-bottom:20px;color:var(--ink-muted);max-width:70ch}
 
-/* Contact */
+/* Contact + form */
 .contact{background:var(--navy);color:var(--on-navy)}
 .contact .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:var(--space-6);align-items:start}
 .contact-copy{display:grid;gap:var(--space-3);min-width:0}
-.contact-copy .channels{margin-top:var(--space-3)}
-.contact h2{font-size:clamp(30px,4.4vw,46px);line-height:1.1;font-weight:700}
-.contact p{color:var(--on-navy-muted);font-size:18px;line-height:28px;margin-top:var(--space-3);max-width:52ch}
-.channels{display:grid;gap:var(--space-3)}
-.channel{display:flex;justify-content:space-between;align-items:center;gap:var(--space-3);padding:18px 20px;border-radius:var(--radius-md);border:1px solid rgba(247,246,242,.18);color:var(--on-navy);text-decoration:none;min-width:0}
-.channel:hover{border-color:var(--brand-orange)}
-.channel b{font-weight:600}
-.channel span{color:var(--on-navy-muted);font-size:14px;overflow-wrap:anywhere;text-align:right}
-.channel.primary{background:var(--brand-orange);border-color:var(--brand-orange);color:#14213d}
-.channel.primary span{color:#14213d}
-@media (max-width:860px){.contact .wrap{grid-template-columns:1fr}}
-
+.contact-copy .label{color:var(--brand-orange)}
+.contact h2{font-size:clamp(30px,4.4vw,44px);line-height:1.1;font-weight:700}
+.contact-copy > p{color:var(--on-navy-muted);font-size:18px;line-height:28px;max-width:52ch}
+.steps{list-style:none;margin:var(--space-2) 0 0;padding:0;display:grid;gap:var(--space-3)}
+.steps li{display:grid;grid-template-columns:32px 1fr;gap:var(--space-3);font-size:15px;line-height:23px;color:var(--on-navy-muted)}
+.steps li b{display:block;color:var(--on-navy)}
+.steps .dot{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font:700 14px/1 var(--font-display);background:rgba(247,246,242,.08);color:var(--on-navy)}
+.contact-copy .direct{font-size:14px;line-height:22px;color:var(--on-navy-muted);margin-top:var(--space-3)}
+.direct a{color:var(--on-navy)}
 .lead{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3);padding:clamp(20px,3vw,32px);border-radius:var(--radius-lg);background:var(--surface-raised);color:var(--ink);min-width:0}
+.lead p{margin:0;max-width:none}
 .lead .field{display:grid;gap:6px;min-width:0;margin:0;padding:0;border:0}
-.lead .field:nth-child(n+5){grid-column:1/-1}
+.lead .full{grid-column:1/-1}
 .lead label,.lead legend{font-size:14px;font-weight:600;padding:0}
 .lead .opt{font-weight:400;color:var(--ink-muted)}
 .lead input,.lead select,.lead textarea{font:400 16px/24px var(--font-sans);color:var(--ink);background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;width:100%}
@@ -224,17 +231,20 @@ p{margin:0}
 .chips label{display:flex;align-items:center;gap:6px;font-weight:400;font-size:15px;padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-pill);cursor:pointer;background:var(--surface)}
 .chips label:has(input:checked){border-color:var(--brand-blue-ink);background:var(--tint-blue);font-weight:600}
 .chips input{width:auto;accent-color:var(--brand-blue-ink)}
-.lead p{margin:0;max-width:none}
 .lead .consent{grid-column:1/-1;font-size:13px;line-height:18px;color:var(--ink-muted)}
-.lead button{grid-column:1/-1;justify-content:center;font-size:16px}
+.lead button{grid-column:1/-1;font-size:16px}
 .lead button[disabled]{opacity:.6;cursor:wait}
 .lead .form-msg{grid-column:1/-1;font-size:15px;line-height:22px;min-height:1em;color:var(--ink)}
 .lead .form-msg.ok{color:var(--brand-blue-ink);font-weight:600}
 .lead .form-msg.err{color:var(--brand-orange-ink);font-weight:600}
+@media (max-width:860px){.contact .wrap{grid-template-columns:1fr}}
 @media (max-width:620px){.lead{grid-template-columns:1fr}}
-footer{background:var(--navy);color:var(--on-navy-muted);border-top:1px solid rgba(247,246,242,.08)}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:var(--space-3);padding-block:var(--space-5);font-size:13px}
+
+footer{background:var(--navy);color:var(--on-navy-muted);border-top:1px solid var(--navy-line)}
+footer .wrap{display:grid;gap:var(--space-3);padding-block:var(--space-5);font-size:13px;line-height:19px}
+footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:var(--space-3)}
 footer img{height:28px;width:auto}
+footer a{color:var(--on-navy-muted)}
 </style>
 </head>
 <body>
@@ -243,11 +253,12 @@ footer img{height:28px;width:auto}
   <div class="wrap">
     <a href="#inicio" aria-label="Tech SkillUp, início"><img src="logo-dark.svg" alt="Tech SkillUp" width="170" height="34"></a>
     <nav class="nav" aria-label="Principal">
-      <a href="#mentorias">Mentorias</a>
-      <a href="#como-funciona">Como funciona</a>
-      <a href="#trajetoria">Trajetória</a>
-      <a href="#conteudo">Conteúdo</a>
-      <a class="btn btn-primary" href="#contato">Diagnóstico gratuito</a>
+      <a href="#por-que-falha">Por que a IA falha</a>
+      <a href="#sprint">Sprint IA</a>
+      <a href="#niveis">Níveis</a>
+      <a href="#quem-conduz">Quem conduz</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a class="btn btn-primary" href="#raio-x">Agendar Raio-X</a>
     </nav>
   </div>
 </header>
@@ -256,213 +267,224 @@ footer img{height:28px;width:auto}
 <section class="hero">
   <div class="wrap">
     <div class="hero-copy">
-      <span class="label">Mentoria para pequenas empresas</span>
-      <h1>Use IA como uma grande empresa, no <em>tamanho</em> da sua</h1>
-      <p class="hero-sub">Mentoria para donos e líderes de pequenas empresas e startups que querem tirar a IA do discurso e colocar no dia a dia, e preparar quem lidera os times para essa mudança. Experiência de B2W e Nubank, aplicada à realidade de um time enxuto.</p>
+      <span class="label">Sprint IA 30 dias · para pequenas empresas</span>
+      <h1>Sua empresa usando IA <em>de verdade</em> em 30 dias, com o ganho medido</h1>
+      <p class="hero-sub">A maioria das empresas assina uma ferramenta de IA e não vê retorno. No Sprint IA, você sai com dois processos rodando com IA, o time treinado e números de antes e depois, com o método que aplico há 25 anos em empresas como B2W e Nubank.</p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="#contato">Quero um diagnóstico gratuito</a>
-        <a class="btn btn-ghost" href="#mentorias">Ver as mentorias</a>
+        <a class="btn btn-primary" href="#raio-x">Agendar Raio-X gratuito</a>
+        <a class="btn btn-ghost" href="#sprint">Ver o que você recebe</a>
       </div>
-      <ul class="proof" aria-label="Credenciais">
-        <li>25 anos em tecnologia</li>
-        <li>Coordenador da trilha Liderança Técnica no TDC</li>
-        <li>Professor na Conquer</li>
-        <li>E-book na Amazon, nota 4,7 de 5</li>
-      </ul>
+      <p class="scarce"><i aria-hidden="true"></i>Atendo uma empresa por vez. A próxima vaga segue a ordem das conversas.</p>
     </div>
     <figure class="hero-photo">
       <img src="palco.jpg" alt="Odair Bonin palestrando com microfone em um auditório" width="933" height="1400">
-      <svg class="chev" viewBox="0 0 96 96" aria-hidden="true"><path d="M14 88 L48 60 L82 88" fill="none" stroke="#3B6FE0" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".45"/><path d="M14 62 L48 34 L82 62" fill="none" stroke="#3B6FE0" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".75"/><path d="M14 36 L48 8 L82 36" fill="none" stroke="#E8833A" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="hero-badge"><b>Odair Bonin</b><span>Architecture manager, professor na Conquer e coordenador no TDC</span></div>
       <figcaption>Foto: @pri_ramalhoo</figcaption>
     </figure>
   </div>
 </section>
 
-<section class="stats" aria-label="Números">
+<section class="proof" aria-label="Credenciais">
   <div class="wrap">
-    <div><strong>25</strong><span>anos em tecnologia, de coordenador a head de TI</span></div>
+    <div><strong>25 anos</strong><span>em tecnologia, de coordenador a head de TI</span></div>
     <div><strong>15–60</strong><span>pessoas nos times que liderei</span></div>
     <div><strong>450+</strong><span>alunos formados na Conquer</span></div>
-    <div><strong>4,7</strong><span>de nota do e-book na Amazon</span></div>
+    <div><strong>4,7</strong><span>de nota do meu e-book de liderança na Amazon</span></div>
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="por-que-falha">
   <div class="wrap">
     <div class="section-head">
-      <span class="label">O ponto de partida</span>
-      <h2>Todo mundo fala de IA. Pouca empresa pequena sabe por onde começar.</h2>
+      <span class="label">O que as pesquisas mostram</span>
+      <h2>Quase toda empresa já usa IA. Quase nenhuma colhe resultado.</h2>
+      <p>O problema raramente é a ferramenta. É processo, treinamento e falta de medida. Os números abaixo vêm das maiores pesquisas sobre o tema.</p>
     </div>
-    <div class="pains">
-      <article class="pain">
-        <h3>Ferramenta assinada, ninguém usa</h3>
-        <p>A empresa paga por ChatGPT, Copilot ou outra ferramenta, mas cada pessoa usa de um jeito e o ganho não aparece no resultado.</p>
+    <div class="stats">
+      <article class="stat hot">
+        <strong>95%</strong>
+        <p>das organizações não viram retorno mensurável nos investimentos em IA generativa.</p>
+        <cite>MIT Project NANDA, <a href="https://virtualizationreview.com/articles/2025/08/19/mit-report-finds-most-ai-business-investments-fail-reveals-genai-divide.aspx" target="_blank" rel="noopener">The GenAI Divide</a>, 2025</cite>
       </article>
-      <article class="pain">
-        <h3>O dono ainda resolve tudo</h3>
-        <p>Atendimento, propostas, relatórios e decisões passam pela mesma pessoa. Falta tempo para pensar no negócio e falta líder preparado para assumir.</p>
+      <article class="stat">
+        <strong>6%</strong>
+        <p>das empresas capturam valor relevante com IA. Elas redesenham processos quase 3x mais do que as outras.</p>
+        <cite>McKinsey, <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-2025" target="_blank" rel="noopener">The State of AI</a>, 2025</cite>
       </article>
-      <article class="pain">
-        <h3>Medo de errar o investimento</h3>
-        <p>Contratar consultoria grande não cabe no orçamento. Contratar no escuro também não. Você precisa de um plano do tamanho da sua operação.</p>
+      <article class="stat hot">
+        <strong>36%</strong>
+        <p>dos profissionais se sentem bem treinados para usar IA. Quem recebe 5 horas ou mais de treino usa muito mais.</p>
+        <cite>BCG, <a href="https://www.bcg.com/press/26june2025-beyond-ai-adoption-full-potential" target="_blank" rel="noopener">AI at Work</a>, 2025, 10.600 pessoas</cite>
+      </article>
+      <article class="stat">
+        <strong>52%</strong>
+        <p>dos pequenos negócios brasileiros já usam IA. Entre os que não usam, 38% dizem não saber o que ela pode fazer.</p>
+        <cite>Sebrae, 7.182 negócios, <a href="https://www.brasilemfolhas.com.br/2026/09/sebrae-aponta-que-52-de-pequenos-negocios-usam-ia/" target="_blank" rel="noopener">2026</a></cite>
       </article>
     </div>
-  </div>
-</section>
 
-<section class="section services" id="mentorias">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="label">Mentorias</span>
-      <h2>Duas frentes que andam juntas: a IA no negócio e as pessoas que lideram</h2>
-      <p>Você escolhe por onde começar. No diagnóstico gratuito, a gente identifica qual delas traz retorno mais rápido para o seu caso.</p>
-    </div>
-    <div class="cards cards-2">
-      <article class="card card-main">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3.5"/></svg>
-        <h3>Mentoria em IA para o negócio</h3>
-        <p>Para donos e gestores que querem aplicar IA onde dá retorno, sem depender de um time de tecnologia grande.</p>
-        <ul>
-          <li>Mapa dos processos com maior ganho: atendimento, vendas, propostas, operação</li>
-          <li>Escolha das ferramentas certas para o seu orçamento</li>
-          <li>Primeiras automações no ar, com o seu time junto</li>
-          <li>Regras simples de uso seguro e de qualidade</li>
-        </ul>
-        <span class="for">Para quem: empresas de 2 a 200 pessoas, de qualquer setor</span>
-      </article>
-      <article class="card card-main">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18.5 14.5c1.6.9 2.5 2.6 2.5 5.5"/></svg>
-        <h3>Mentoria de liderança</h3>
-        <p>Para quem lidera times, ou está prestes a liderar, e precisa de resultado sem perder as pessoas no caminho.</p>
-        <ul>
-          <li>Delegação e rotina de acompanhamento que funcionam</li>
-          <li>Metas, indicadores e previsibilidade de entrega</li>
-          <li>Feedback, conversas difíceis e formação de novos líderes</li>
-          <li>Como liderar um time que passa a trabalhar com IA</li>
-        </ul>
-        <span class="for">Para quem: donos, gestores, tech leads e novos líderes</span>
-      </article>
-    </div>
-    <div class="extra">
-      <div>
-        <b>Tem um time de tecnologia?</b>
-        <span>Também acompanho times de desenvolvimento na adoção de IA em todo o processo, do card ao deploy, com resultado medido em ciclos de quatro semanas.</span>
+    <div class="fails">
+      <div class="fail">
+        <span class="n">1</span>
+        <div><h3>Ferramenta sem processo</h3><p>A IA entra por cima do jeito antigo de trabalhar. Cada pessoa usa de um jeito, nada muda no fluxo e o ganho fica invisível.</p></div>
+        <div class="fix"><b>No Sprint</b><span>Escolhemos dois processos e redesenhamos o fluxo deles com a IA dentro, do começo ao fim.</span></div>
       </div>
-      <a href="#contato">Falar sobre o meu time</a>
+      <div class="fail">
+        <span class="n">2</span>
+        <div><h3>Time sem treinamento</h3><p>A empresa assina a ferramenta e espera que as pessoas aprendam sozinhas. Só uma minoria aprende, e o resto desiste.</p></div>
+        <div class="fix"><b>No Sprint</b><span>O time aprende fazendo, em encontros práticos ao longo das quatro semanas, com um guia de uso no final.</span></div>
+      </div>
+      <div class="fail">
+        <span class="n">3</span>
+        <div><h3>Nenhuma medida de retorno</h3><p>Sem um antes e depois, ninguém sabe se valeu a pena. O projeto perde prioridade e é abandonado depois do piloto.</p></div>
+        <div class="fix"><b>No Sprint</b><span>Medimos o processo na semana 1 e de novo na semana 4. Você vê em horas e em resultado o que mudou.</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="como-funciona">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="label">Como funciona</span>
-      <h2>Do diagnóstico ao resultado em ciclos de quatro semanas</h2>
-      <p>Nada de teoria solta. Cada ciclo parte de um problema real da sua empresa e termina com algo funcionando e medido.</p>
+<section class="section alt" id="sprint">
+  <div class="wrap product">
+    <div class="product-intro">
+      <span class="label">O produto</span>
+      <h2>Sprint IA 30 dias</h2>
+      <p>Quatro semanas para tirar a IA do discurso e colocar na rotina da sua empresa, com o seu time fazendo e eu conduzindo.</p>
+      <ul class="deliver">
+        <li><svg class="chev-ico" viewBox="0 0 96 96" aria-hidden="true"><path d="M14 64 L48 36 L82 64" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>2 processos</b> rodando com IA no dia a dia</span></li>
+        <li><svg class="chev-ico" viewBox="0 0 96 96" aria-hidden="true"><path d="M14 64 L48 36 L82 64" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Time treinado</b> na prática, com guia de uso</span></li>
+        <li><svg class="chev-ico" viewBox="0 0 96 96" aria-hidden="true"><path d="M14 64 L48 36 L82 64" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Antes e depois medido</b> em horas e resultado</span></li>
+        <li><svg class="chev-ico" viewBox="0 0 96 96" aria-hidden="true"><path d="M14 64 L48 36 L82 64" fill="none" style="stroke:var(--brand-orange)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Plano de 90 dias</b> para os próximos passos</span></li>
+      </ul>
+      <a class="btn btn-primary" href="#raio-x">Começar pelo Raio-X gratuito</a>
     </div>
     <ol class="weeks">
       <li class="week">
-        <div class="week-mark"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M14 72 L48 44 L82 72" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".35"/></svg><span>Antes de começar</span></div>
-        <h3>Diagnóstico gratuito</h3>
-        <p>Uma conversa de 30 minutos para entender o momento da empresa e dizer com franqueza se a mentoria faz sentido agora.</p>
+        <div class="week-num"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M14 80 L48 52 L82 80" fill="none" style="stroke:var(--brand-blue)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".35"/></svg><span>Semana 1</span></div>
+        <div><h3>Mapa e medida</h3><p>Levantamos como o trabalho acontece hoje, escolhemos os dois processos com maior retorno e medimos o ponto de partida.</p><p class="out"><b>Você recebe:</b> mapa de oportunidades priorizado e a medida inicial.</p></div>
       </li>
       <li class="week">
-        <div class="week-mark"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M14 84 L48 56 L82 84" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".35"/><path d="M14 58 L48 30 L82 58" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".65"/></svg><span>Semana 1</span></div>
-        <h3>Mapa e prioridades</h3>
-        <p>Levantamos processos, gargalos e pessoas-chave. Escolhemos as duas ou três frentes com maior retorno.</p>
+        <div class="week-num"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M14 86 L48 58 L82 86" fill="none" style="stroke:var(--brand-blue)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".35"/><path d="M14 60 L48 32 L82 60" fill="none" style="stroke:var(--brand-blue)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".65"/></svg><span>Semana 2</span></div>
+        <div><h3>Primeiro processo no ar</h3><p>Redesenhamos o fluxo e colocamos a IA para funcionar. Exemplos: atendimento no WhatsApp, propostas, relatórios, follow-up de vendas.</p><p class="out"><b>Você recebe:</b> processo 1 funcionando com o time.</p></div>
       </li>
       <li class="week">
-        <div class="week-mark"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M14 90 L48 62 L82 90" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".35"/><path d="M14 64 L48 36 L82 64" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".65"/><path d="M14 38 L48 10 L82 38" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Semanas 2 e 3</span></div>
-        <h3>Mão na massa acompanhada</h3>
-        <p>Você e o seu time aplicam, com a minha orientação: primeiras automações, novas rotinas de liderança, ajustes semana a semana.</p>
+        <div class="week-num"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M14 90 L48 62 L82 90" fill="none" style="stroke:var(--brand-blue)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".35"/><path d="M14 64 L48 36 L82 64" fill="none" style="stroke:var(--brand-blue)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".65"/><path d="M14 38 L48 10 L82 38" fill="none" style="stroke:var(--brand-blue)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Semana 3</span></div>
+        <div><h3>Segundo processo e rotina do time</h3><p>Repetimos o ciclo no segundo processo e ajustamos a rotina: quem faz o quê, como revisar e o que não delegar para a IA.</p><p class="out"><b>Você recebe:</b> processo 2 funcionando e guia de uso.</p></div>
       </li>
       <li class="week">
-        <div class="week-mark"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M14 90 L48 62 L82 90" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".35"/><path d="M14 64 L48 36 L82 64" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".65"/><path d="M14 38 L48 10 L82 38" fill="none" style="stroke:var(--brand-orange)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Semana 4</span></div>
-        <h3>Resultado e próximo nível</h3>
-        <p>Comparamos o antes e o depois, registramos o que ficou de método e definimos se vale um novo ciclo.</p>
+        <div class="week-num"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M14 90 L48 62 L82 90" fill="none" style="stroke:var(--brand-blue)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".35"/><path d="M14 64 L48 36 L82 64" fill="none" style="stroke:var(--brand-blue)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".65"/><path d="M14 38 L48 10 L82 38" fill="none" style="stroke:var(--brand-orange)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Semana 4</span></div>
+        <div><h3>Resultado e próximo nível</h3><p>Medimos de novo, comparamos com a semana 1 e apresentamos o resultado para quem decide.</p><p class="out"><b>Você recebe:</b> relatório de antes e depois e plano de 90 dias.</p></div>
       </li>
     </ol>
-    <div class="callout">
-      <strong>Sem fidelidade</strong>
-      <p>Cada ciclo é independente. Ao final de quatro semanas, você decide se continua, com base no que foi medido.</p>
-    </div>
   </div>
-</section>
-
-<section class="section" style="padding-top:0" id="resultados">
   <div class="wrap">
-    <div class="case">
+    <div class="fit">
       <div>
-        <span class="label">Resultados que já entreguei</span>
-        <h3>Antes da consultoria, a operação</h3>
-        <p style="margin-top:var(--space-3)">São 25 anos liderando times de 15 a 60 pessoas. Hoje atuo como architecture manager e principal engineer, e levo para as startups o que funcionou em empresas de grande escala.</p>
+        <h3>É para você se</h3>
+        <ul>
+          <li>sua empresa tem entre 2 e 200 pessoas</li>
+          <li>você já testou IA, mas o ganho não apareceu no resultado</li>
+          <li>o dono ou um gestor consegue dedicar algumas horas por semana</li>
+          <li>você quer o time fazendo, não uma solução terceirizada</li>
+        </ul>
       </div>
-      <dl>
-        <div><dt>B2W (Americanas) · SAC</dt><dd>Modernização do sistema de atendimento ao cliente: atendimentos 10x mais eficientes, 20x mais rápidos, com 90% dos casos resolvidos na primeira interação.</dd></div>
-        <div><dt>Nubank · Novo produto</dt><dd>Lançamento do Empréstimo com Garantia de Investimentos, modalidade para pequenos empreendedores.</dd></div>
-        <div><dt>Plataforma de assinaturas · Performance</dt><dd>Melhoria de performance que reduziu em 40% o custo de cada assinatura com certificado.</dd></div>
-      </dl>
+      <div>
+        <h3>Não é para você se</h3>
+        <ul>
+          <li>procura um software pronto para instalar e esquecer</li>
+          <li>quer um curso genérico de ferramentas de IA</li>
+          <li>ninguém da empresa pode participar das semanas</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section services" id="trajetoria">
-  <div class="wrap about">
-    <figure class="about-photo" style="margin:0"><img src="retrato.jpg" alt="Retrato de Odair Bonin de blazer azul" width="563" height="1000"></figure>
-    <div class="about-copy">
+<section class="section" id="niveis">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">Três níveis, como o símbolo da marca</span>
+      <h2>Comece pelo diagnóstico. Avance quando fizer sentido.</h2>
+      <p>O investimento do Sprint e da Mentoria é definido depois do Raio-X, de acordo com o tamanho da empresa e o escopo combinado.</p>
+    </div>
+    <div class="levels">
+      <article class="level">
+        <div class="level-top"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M14 76 L48 48 L82 76" fill="none" style="stroke:var(--brand-blue)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="pill">Gratuito</span></div>
+        <div><h3>Raio-X de IA</h3><p class="sub">Uma conversa para entender onde a IA traz retorno na sua empresa.</p></div>
+        <ul>
+          <li>Conversa de 30 a 45 minutos, online</li>
+          <li>As 3 oportunidades com maior retorno</li>
+          <li>Recomendação franca: vale ou não começar agora</li>
+        </ul>
+        <div class="meta"><span><b>Para quem:</b> donos e gestores</span><span><b>Formato:</b> videochamada</span></div>
+        <a class="btn btn-outline" href="#raio-x">Agendar Raio-X</a>
+      </article>
+      <article class="level main">
+        <div class="level-top"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M14 86 L48 58 L82 86" fill="none" style="stroke:var(--brand-blue)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".45"/><path d="M14 58 L48 30 L82 58" fill="none" style="stroke:var(--brand-orange)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="pill">Produto principal</span></div>
+        <div><h3>Sprint IA 30 dias</h3><p class="sub">Dois processos rodando com IA, time treinado e ganho medido.</p></div>
+        <ul>
+          <li>4 semanas com encontros práticos</li>
+          <li>Suporte pelo WhatsApp durante o Sprint</li>
+          <li>Relatório de antes e depois</li>
+          <li>Plano de 90 dias</li>
+        </ul>
+        <div class="meta"><span><b>Para quem:</b> empresas de 2 a 200 pessoas</span><span><b>Vagas:</b> uma empresa por vez</span></div>
+        <a class="btn btn-primary" href="#raio-x">Quero o Sprint IA</a>
+      </article>
+      <article class="level">
+        <div class="level-top"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M14 90 L48 62 L82 90" fill="none" style="stroke:var(--brand-blue)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".35"/><path d="M14 64 L48 36 L82 64" fill="none" style="stroke:var(--brand-blue)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".65"/><path d="M14 38 L48 10 L82 38" fill="none" style="stroke:var(--brand-orange)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="pill">Recorrente</span></div>
+        <div><h3>Mentoria de Liderança</h3><p class="sub">Para quem lidera times e precisa de resultado sem perder as pessoas.</p></div>
+        <ul>
+          <li>Encontros quinzenais, individuais</li>
+          <li>Delegação, metas e previsibilidade</li>
+          <li>Feedback e formação de novos líderes</li>
+          <li>Como liderar um time que trabalha com IA</li>
+        </ul>
+        <div class="meta"><span><b>Para quem:</b> donos, gestores e tech leads</span><span><b>Duração:</b> ciclos de 3 meses</span></div>
+        <a class="btn btn-outline" href="#raio-x">Falar sobre mentoria</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="quem-conduz">
+  <div class="wrap auth">
+    <figure class="auth-photo"><img src="retrato.jpg" alt="Retrato de Odair Bonin de blazer azul" width="563" height="1000" loading="lazy"></figure>
+    <div class="auth-copy">
       <span class="label">Quem conduz</span>
-      <h2>Odair Bonin</h2>
-      <p>São 25 anos em tecnologia, passando por coordenação, gerência e head de TI, com times de 15 a 60 pessoas. Atualmente sou architecture manager e principal engineer. Pela Tech SkillUp, ajudo startups a transformar a promessa da IA em entrega medida, e formo líderes de tecnologia em sala de aula.</p>
-      <ol class="timeline">
-        <li><time>Hoje</time><div><b>Architecture manager e principal engineer</b><span>Arquitetura e liderança técnica em produto digital.</span></div></li>
-        <li><time>2026</time><div><b>Fundador, Tech SkillUp</b><span>Consultoria em processo de desenvolvimento AI First e mentoria de líderes.</span></div></li>
-        <li><time>2026</time><div><b>Coordenador e palestrante, TDC São Paulo</b><span>Trilha Liderança Técnica.</span></div></li>
-        <li><time>2023</time><div><b>Professor na Conquer</b><span>Liderança tech, processos ágeis, BI e Analytics. Mais de 450 alunos formados.</span></div></li>
-        <li><time>Podcasts</time><div><b>Criador do Conversa Ágil e do Depende Cast</b><span>Conversas sobre agilidade, liderança e tecnologia. O Depende Cast está no YouTube.</span></div></li>
-        <li><time>Carreira</time><div><b>Coordenador, gerente e head de TI</b><span>Entregas em empresas como B2W (Americanas) e Nubank.</span></div></li>
-      </ol>
+      <h2>Método de grande empresa, no tamanho da sua</h2>
+      <p>Sou Odair Bonin. Passei 25 anos em tecnologia, de coordenador a head de TI, liderando times de 15 a 60 pessoas. Hoje sou architecture manager e principal engineer. Na Tech SkillUp, levo para pequenas empresas o que funciona nas grandes: processo claro, gente treinada e resultado medido.</p>
+      <div class="cases">
+        <div class="case"><b>B2W (Americanas)<small>Atendimento ao cliente</small></b><span>Modernização do SAC: atendimentos <strong>10x mais eficientes</strong> e <strong>20x mais rápidos</strong>, com <strong>90%</strong> dos casos resolvidos no primeiro contato.</span></div>
+        <div class="case"><b>Nubank<small>Novo produto</small></b><span>Lançamento do Empréstimo com Garantia de Investimentos, modalidade para pequenos empreendedores.</span></div>
+        <div class="case"><b>Plataforma de assinaturas<small>Custo e performance</small></b><span>Melhoria de performance que reduziu em <strong>40%</strong> o custo de cada assinatura com certificado.</span></div>
+      </div>
+      <ul class="creds" aria-label="Atuação">
+        <li>Professor na Conquer: liderança tech, ágil, BI e Analytics</li>
+        <li>Coordenador da trilha Liderança Técnica no TDC</li>
+        <li>Criador dos podcasts Conversa Ágil e Depende Cast</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="conteudo">
   <div class="wrap">
     <div class="section-head">
-      <span class="label">Sala de aula</span>
-      <h2>Professor na Conquer</h2>
-      <p>Há três anos e meio em sala de aula, com mais de 450 alunos formados. Ensinar obriga a transformar experiência em método, e é esse método que levo para os times.</p>
-    </div>
-    <div class="teach">
-      <div><b>Liderança tech</b><span>Gestão de times de engenharia, carreira e tomada de decisão.</span></div>
-      <div><b>Processos ágeis</b><span>Fluxo, previsibilidade e melhoria contínua na prática.</span></div>
-      <div><b>BI e Analytics</b><span>Dados para decidir, do indicador ao painel.</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="padding-top:0" id="conteudo">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="label">Palcos e conversas</span>
-      <h2>Compartilhando o que funciona na prática</h2>
-      <p>Coordeno a trilha de Liderança Técnica no TDC, crio os podcasts Conversa Ágil e Depende Cast e falo em eventos como o HJ25.</p>
+      <span class="label">Palcos e conteúdo</span>
+      <h2>O que ensino em sala e em palco, aplicado na sua empresa</h2>
     </div>
     <div class="gallery">
       <figure class="g1"><img src="tdc-palco.jpg" alt="Odair falando ao microfone no The Developer's Conference" loading="lazy" width="1200" height="674"><figcaption>The Developer's Conference</figcaption></figure>
-      <figure class="g2"><img src="tdc-podcast.jpg" alt="Odair gravando podcast no TDC São Paulo 2026" loading="lazy" width="667" height="1000"><figcaption>Podcast no TDC São Paulo 2026</figcaption></figure>
-      <figure class="g3"><img src="podcast-ia.jpg" alt="Odair em entrevista de podcast com fones e microfone" loading="lazy" width="900" height="900"><figcaption>Podcast no TDC</figcaption></figure>
-      <figure class="g4"><img src="conferencia.jpg" alt="Odair no evento HJ25 em Concórdia, Santa Catarina" loading="lazy" width="1200" height="675"><figcaption>HJ25, Concórdia (SC)</figcaption></figure>
-      <figure class="g5"><img src="estudio.jpg" alt="Odair em estúdio de gravação de aulas" loading="lazy" width="1200" height="675"><figcaption>Gravação de aulas</figcaption></figure>
+      <figure class="g2"><img src="conferencia.jpg" alt="Odair no evento HJ25 em Concórdia, Santa Catarina" loading="lazy" width="1200" height="675"><figcaption>HJ25, Concórdia (SC)</figcaption></figure>
+      <figure class="g3"><img src="estudio.jpg" alt="Odair em estúdio de gravação de aulas" loading="lazy" width="1200" height="675"><figcaption>Gravação de aulas</figcaption></figure>
     </div>
-
-    <div class="ebook" style="margin-top:var(--space-6)">
+    <div class="ebook">
       <img src="ebook.jpg" alt="Capa do e-book As verdades não ditas sobre a liderança em tecnologia" width="440" height="700" loading="lazy">
       <div class="ebook-copy">
-        <span class="label">E-book</span>
-        <h2>As verdades não ditas sobre a liderança em tecnologia</h2>
+        <span class="label">E-book · 4,7 de 5 na Amazon</span>
+        <h3>As verdades não ditas sobre a liderança em tecnologia</h3>
         <p>Hacks para vencer no jogo, escritos para engineering managers e líderes de tecnologia que querem resultado sem perder o time no caminho.</p>
-        <p class="rating"><strong>4,7 de 5</strong> na Amazon</p>
-        <div style="display:flex;flex-wrap:wrap;gap:var(--space-3)">
+        <div class="ebook-ctas">
           <a class="btn btn-blue" href="https://hotmart.com/pt-br/marketplace/produtos/as-verdades-nao-ditas-na-lideranca-de-tecnologia/E101351197B" target="_blank" rel="noopener">Comprar na Hotmart</a>
           <a class="btn btn-outline" href="https://www.amazon.com.br/s?k=As+verdades+n%C3%A3o+ditas+lideran%C3%A7a+tecnologia+Odair+Bonin" target="_blank" rel="noopener">Ver na Amazon</a>
         </div>
@@ -471,16 +493,35 @@ footer img{height:28px;width:auto}
   </div>
 </section>
 
-<section class="section contact" id="contato">
+<section class="section alt" id="duvidas">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">Dúvidas frequentes</span>
+      <h2>Antes de agendar</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Preciso ter um time de tecnologia?</summary><p>Não. O Sprint usa ferramentas que pessoas de negócio conseguem operar. Se sua empresa tiver time de tecnologia, ele entra junto e o resultado costuma ser ainda maior.</p></details>
+      <details><summary>Quanto custa?</summary><p>O Raio-X é gratuito. O investimento do Sprint e da Mentoria depende do tamanho da empresa e dos processos escolhidos, e é apresentado numa proposta fechada depois do Raio-X, sem surpresas.</p></details>
+      <details><summary>Quanto tempo minha equipe precisa dedicar?</summary><p>Algumas horas por semana do dono ou do gestor responsável, mais a participação das pessoas que trabalham nos processos escolhidos durante os encontros práticos.</p></details>
+      <details><summary>Quais ferramentas vamos usar?</summary><p>As que fizerem sentido para o seu orçamento e para o que a empresa já usa. Pode ser ChatGPT, Gemini, Copilot, automações com n8n ou integrações com WhatsApp. A escolha vem do processo, não o contrário.</p></details>
+      <details><summary>E os dados da minha empresa?</summary><p>Definimos no início o que pode e o que não pode ir para ferramentas de IA, e o guia de uso do time inclui essas regras.</p></details>
+      <details><summary>Por que só uma empresa por vez?</summary><p>Porque eu conduzo cada Sprint pessoalmente. Atender uma empresa por vez garante atenção total durante as quatro semanas.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="raio-x">
   <div class="wrap">
     <div class="contact-copy">
-      <span class="label" style="color:var(--brand-orange)">Diagnóstico gratuito</span>
-      <h2 style="margin-top:var(--space-2)">Conte em que ponto sua empresa está</h2>
-      <p>Responda em um minuto. Eu leio pessoalmente e retorno pelo WhatsApp para marcar uma conversa de 30 minutos, sem custo e sem compromisso.</p>
-      <div class="channels">
-        <a class="channel" href="https://wa.me/5511976977760?text=Ol%C3%A1%20Odair%2C%20vim%20pelo%20site%20da%20Tech%20SkillUp" target="_blank" rel="noopener"><b>Prefere falar direto?</b><span>WhatsApp (11) 97697-7760</span></a>
-        <a class="channel" href="https://www.linkedin.com/in/odairbonin" target="_blank" rel="noopener"><b>LinkedIn</b><span>linkedin.com/in/odairbonin</span></a>
-      </div>
+      <span class="label">Raio-X de IA gratuito</span>
+      <h2>Descubra onde a IA dá retorno na sua empresa</h2>
+      <p>Responda em um minuto. Eu leio pessoalmente e te chamo no WhatsApp para marcar a conversa.</p>
+      <ol class="steps">
+        <li><span class="dot">1</span><div><b>Você preenche o formulário</b>Leva um minuto.</div></li>
+        <li><span class="dot">2</span><div><b>Combinamos o horário pelo WhatsApp</b>Videochamada de 30 a 45 minutos.</div></li>
+        <li><span class="dot">3</span><div><b>Você sai com 3 oportunidades</b>E uma recomendação franca sobre o próximo passo.</div></li>
+      </ol>
+      <p class="direct">Prefere falar direto? <a href="https://wa.me/5511976977760?text=Ol%C3%A1%20Odair%2C%20vim%20pelo%20site%20da%20Tech%20SkillUp" target="_blank" rel="noopener">WhatsApp (11) 97697-7760</a> · <a href="https://www.linkedin.com/in/odairbonin" target="_blank" rel="noopener">LinkedIn</a></p>
     </div>
     <form class="lead" id="lead-form" novalidate>
       <div class="field"><label for="f-nome">Seu nome</label><input id="f-nome" name="nome" autocomplete="name" required></div>
@@ -491,18 +532,18 @@ footer img{height:28px;width:auto}
           <option value="">Selecione</option>
           <option>Só eu</option><option>2 a 10 pessoas</option><option>11 a 50 pessoas</option><option>51 a 200 pessoas</option><option>Mais de 200 pessoas</option>
         </select></div>
-      <fieldset class="field">
-        <legend>O que você procura?</legend>
+      <fieldset class="field full">
+        <legend>O que mais te interessa?</legend>
         <div class="chips">
-          <label><input type="radio" name="interesse" value="Mentoria em IA para o negócio" id="f-int-ia" required> IA no negócio</label>
-          <label><input type="radio" name="interesse" value="Mentoria de liderança" id="f-int-lid"> Liderança</label>
+          <label><input type="radio" name="interesse" value="Sprint IA 30 dias" id="f-int-sprint" required> Sprint IA 30 dias</label>
+          <label><input type="radio" name="interesse" value="Mentoria de Liderança" id="f-int-lid"> Mentoria de Liderança</label>
           <label><input type="radio" name="interesse" value="Time de tecnologia com IA" id="f-int-tech"> Time de tecnologia</label>
           <label><input type="radio" name="interesse" value="Ainda não sei" id="f-int-nd"> Ainda não sei</label>
         </div>
       </fieldset>
-      <div class="field"><label for="f-desafio">Qual o maior desafio hoje? <span class="opt">(opcional)</span></label><textarea id="f-desafio" name="desafio" rows="3"></textarea></div>
+      <div class="field full"><label for="f-desafio">Onde a IA ainda não funcionou ou o que mais trava hoje? <span class="opt">(opcional)</span></label><textarea id="f-desafio" name="desafio" rows="3"></textarea></div>
       <p class="consent">Ao enviar, você autoriza o contato da Tech SkillUp sobre este pedido. Seus dados não são compartilhados.</p>
-      <button class="btn btn-primary" type="submit" id="f-enviar">Quero meu diagnóstico</button>
+      <button class="btn btn-primary" type="submit" id="f-enviar">Quero meu Raio-X gratuito</button>
       <p class="form-msg" id="f-msg" role="status" aria-live="polite"></p>
     </form>
   </div>
@@ -511,8 +552,11 @@ footer img{height:28px;width:auto}
 
 <footer>
   <div class="wrap">
-    <img src="logo-dark.svg" alt="Tech SkillUp" width="140" height="28">
-    <span>© 2026 Tech SkillUp · Odair Bonin</span>
+    <div class="row">
+      <img src="logo-dark.svg" alt="Tech SkillUp" width="140" height="28">
+      <span>© 2026 Tech SkillUp · Odair Bonin · <a href="https://www.linkedin.com/in/odairbonin" target="_blank" rel="noopener">LinkedIn</a></span>
+    </div>
+    <p>Fontes das pesquisas: MIT Project NANDA, The GenAI Divide: State of AI in Business 2025; McKinsey, The State of AI 2025 (1.993 participantes, 105 países); BCG, AI at Work 2025 (10.600 pessoas, 11 países); Sebrae, pesquisa com 7.182 pequenos negócios divulgada em 2026.</p>
   </div>
 </footer>
 
@@ -532,7 +576,7 @@ footer img{height:28px;width:auto}
       el.setAttribute("aria-invalid", bad ? "true" : "false"); if (bad) ok = false;
     });
     if (!val("interesse")) ok = false;
-    if (!ok){ msg.className = "form-msg err"; msg.textContent = "Preencha nome, empresa, WhatsApp com DDD, tamanho da empresa e o que você procura."; return; }
+    if (!ok){ msg.className = "form-msg err"; msg.textContent = "Preencha nome, empresa, WhatsApp com DDD, tamanho da empresa e o que mais te interessa."; return; }
     var data = { nome: val("nome"), empresa: val("empresa"), whatsapp: val("whatsapp"), tamanho: val("tamanho"), interesse: val("interesse"), desafio: val("desafio"), origem: location.href, enviado_em: new Date().toISOString() };
     var texto = "Olá Odair, vim pelo site da Tech SkillUp.\nNome: " + data.nome + "\nEmpresa: " + data.empresa + " (" + data.tamanho + ")\nInteresse: " + data.interesse + (data.desafio ? "\nDesafio: " + data.desafio : "");
     var waLink = "https://wa.me/" + WA + "?text=" + encodeURIComponent(texto);
@@ -541,7 +585,6 @@ footer img{height:28px;width:auto}
       msg.innerHTML = "Não consegui registrar automaticamente. <a href=\"" + waLink + "\" target=\"_blank\" rel=\"noopener\">Envie seus dados pelo WhatsApp</a> com um clique.";
       btn.disabled = false;
     }
-    if (!WEBHOOK){ fallback(); return; }
     btn.disabled = true; msg.className = "form-msg"; msg.textContent = "Enviando…";
     fetch(WEBHOOK, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })
       .then(function(r){ if (!r.ok) throw new Error(r.status);
@@ -553,7 +596,7 @@ footer img{height:28px;width:auto}
 })();
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"Tech SkillUp","url":"https://techskillup.com.br/","founder":{"@type":"Person","name":"Odair Bonin"},"description":"Consultoria para startups em processo de desenvolvimento AI First, mentoria de líderes de tecnologia e IA aplicada a outras áreas.","areaServed":"BR","telephone":"+55-11-97697-7760","sameAs":["https://www.linkedin.com/in/odairbonin"]}
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Tech SkillUp","url":"https://techskillup.com.br/","founder":{"@type":"Person","name":"Odair Bonin"},"description":"Sprint IA 30 dias: dois processos rodando com IA, time treinado e ganho medido para pequenas empresas. Mentoria de liderança.","areaServed":"BR","telephone":"+55-11-97697-7760","sameAs":["https://www.linkedin.com/in/odairbonin"]}
 </script>
 </body>
 </html>
