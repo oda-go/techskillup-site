@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tech SkillUp | Odair Bonin</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Consultoria para startups pequenas e médias que querem a aceleração da IA com método: processo de desenvolvimento AI First, mentoria de líderes de tecnologia e resultado medido.">
+<meta property="og:title" content="Tech SkillUp | IA como acelerador, com método">
+<meta property="og:description" content="Consultoria de Odair Bonin para startups: processo de desenvolvimento AI First, mentoria de líderes de tecnologia e resultado medido em ciclos de quatro semanas.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://techskillup.com.br/">
+<meta property="og:image" content="https://techskillup.com.br/palco.jpg">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;600&display=swap">
+<style>
+/* Layout: navy hero band with stage photo, then calm light sections; the brand chevron marks real steps (weeks, career). */
+:root{
+  --brand-blue:#3b6fe0; --brand-blue-ink:#2a57c4;
+  --brand-orange:#e8833a; --brand-orange-ink:#b85a16;
+  --navy:#14213d; --on-navy:#f7f6f2; --on-navy-muted:#bfc8da;
+  --surface:#f7f6f2; --surface-raised:#ffffff; --tint-blue:#e6edfc;
+  --ink:#14213d; --ink-muted:#4a5568; --border:#e2e0d8;
+  --todo-bg:#fff1e3; --todo-ink:#8a4210;
+  --shadow-card:0 10px 30px rgba(20,33,61,.08);
+  --font-display:"Space Grotesk", Arial, sans-serif;
+  --font-sans:Inter, Arial, sans-serif;
+  --space-1:4px; --space-2:8px; --space-3:16px; --space-4:24px; --space-5:32px; --space-6:48px;
+  --radius-sm:6px; --radius-md:12px; --radius-lg:20px; --radius-pill:999px;
+  --wrap:1120px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --brand-blue:#8fb0ff; --brand-blue-ink:#a9c2ff; --brand-orange:#f0964f; --brand-orange-ink:#ffb27a;
+  --navy:#0b1426; --surface:#14213d; --surface-raised:#1c2b4d; --tint-blue:#22356a;
+  --ink:#f7f6f2; --ink-muted:#bfc8da; --border:#2e3d5e; --todo-bg:#4a2a10; --todo-ink:#ffd2ad;
+  --shadow-card:0 10px 30px rgba(0,0,0,.35); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --brand-blue:#8fb0ff; --brand-blue-ink:#a9c2ff; --brand-orange:#f0964f; --brand-orange-ink:#ffb27a;
+  --navy:#0b1426; --surface:#14213d; --surface-raised:#1c2b4d; --tint-blue:#22356a;
+  --ink:#f7f6f2; --ink-muted:#bfc8da; --border:#2e3d5e; --todo-bg:#4a2a10; --todo-ink:#ffd2ad;
+  --shadow-card:0 10px 30px rgba(0,0,0,.35); color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--surface);color:var(--ink);font:400 16px/26px var(--font-sans);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--navy)}
+img{max-width:100%;display:block}
+a{color:var(--brand-blue-ink)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--brand-orange);outline-offset:3px;border-radius:var(--radius-sm)}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.label{font:600 12px/16px var(--font-sans);letter-spacing:1.5px;text-transform:uppercase;color:var(--brand-orange-ink)}
+.section{padding-block:clamp(56px,8vw,96px)}
+.section-head{display:grid;gap:var(--space-2);max-width:720px;margin-bottom:var(--space-6)}
+.section-head h2{font-size:clamp(28px,4vw,40px);line-height:1.15;font-weight:600}
+.section-head p{color:var(--ink-muted);font-size:18px;line-height:28px}
+.todo{background:var(--todo-bg);color:var(--todo-ink);border-radius:4px;padding:0 4px;font-weight:600}
+
+/* Header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--navy);border-bottom:1px solid rgba(247,246,242,.08)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);padding-block:14px}
+.top img{height:34px;width:auto}
+.nav{display:flex;align-items:center;gap:var(--space-4)}
+.nav a{color:var(--on-navy-muted);text-decoration:none;font-weight:600;font-size:14px}
+.nav a:hover{color:var(--on-navy)}
+.btn{display:inline-flex;align-items:center;gap:var(--space-2);font:600 15px/1 var(--font-sans);padding:14px 20px;border-radius:var(--radius-md);text-decoration:none;border:2px solid transparent;cursor:pointer}
+.btn-primary{background:var(--brand-orange);color:#14213d}
+.btn-primary:hover{filter:brightness(1.06)}
+.btn-ghost{border-color:rgba(247,246,242,.35);color:var(--on-navy)}
+.btn-ghost:hover{border-color:var(--on-navy)}
+.nav .btn{padding:10px 16px;font-size:14px;color:#14213d}
+@media (max-width:860px){.nav a:not(.btn){display:none}}
+
+/* Hero */
+.hero{background:var(--navy);color:var(--on-navy);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,64px);align-items:center;padding-block:clamp(48px,7vw,88px)}
+.hero-copy{display:grid;gap:var(--space-4);min-width:0}
+.hero .label{color:var(--brand-orange)}
+.hero h1{font-size:clamp(36px,5.4vw,60px);line-height:1.06;letter-spacing:-1px;font-weight:700}
+.hero h1 em{font-style:normal;color:var(--brand-orange)}
+.hero-sub{font-size:19px;line-height:30px;color:var(--on-navy-muted);max-width:56ch}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-2)}
+.proof{display:flex;flex-wrap:wrap;gap:var(--space-2);margin-top:var(--space-3);padding:0;list-style:none}
+.proof li{font-size:13px;line-height:18px;padding:8px 12px;border-radius:var(--radius-pill);border:1px solid rgba(247,246,242,.18);color:var(--on-navy)}
+.hero-photo{position:relative;justify-self:end;width:100%;max-width:420px}
+.hero-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:var(--radius-lg)}
+.hero-photo figcaption{font-size:12px;color:var(--on-navy-muted);margin-top:var(--space-2);text-align:right}
+.chev{position:absolute;left:-28px;bottom:36px;width:84px;height:auto}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero-photo{justify-self:start;max-width:360px}.chev{left:auto;right:-16px}}
+
+/* Stats */
+.stats{background:var(--surface-raised);border-bottom:1px solid var(--border)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4);padding-block:var(--space-5)}
+.stats div{display:grid;gap:4px;min-width:0}
+.stats strong{font:700 clamp(30px,3.6vw,40px)/1.1 var(--font-display);color:var(--brand-blue-ink);font-variant-numeric:tabular-nums}
+.stats span{color:var(--ink-muted);font-size:14px;line-height:20px}
+@media (max-width:760px){.stats .wrap{grid-template-columns:1fr 1fr}}
+.rating strong{font-family:var(--font-display);color:var(--brand-orange-ink)}
+
+/* Problem */
+.pains{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)}
+.pain{display:grid;gap:var(--space-2);align-content:start;padding-top:var(--space-4);border-top:2px solid var(--ink)}
+.pain h3{font-size:20px;line-height:26px;font-weight:600}
+.pain p{color:var(--ink-muted)}
+@media (max-width:860px){.pains{grid-template-columns:1fr;gap:var(--space-4)}}
+
+/* Services */
+.services{background:var(--surface-raised);border-block:1px solid var(--border)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4)}
+.card{display:grid;gap:var(--space-3);align-content:start;padding:var(--space-5) var(--space-4);border-radius:var(--radius-lg);background:var(--surface);min-width:0}
+.card svg{width:36px;height:36px;stroke:var(--brand-blue);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:22px;line-height:28px;font-weight:600}
+.card p{color:var(--ink-muted)}
+.card ul{margin:0;padding-left:18px;color:var(--ink);display:grid;gap:6px;font-size:15px;line-height:22px}
+.card ul li::marker{color:var(--brand-blue)}
+@media (max-width:900px){.cards{grid-template-columns:1fr}}
+
+/* Method: 4 weeks */
+.weeks{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4);list-style:none;margin:0;padding:0}
+.week{display:grid;gap:var(--space-2);align-content:start;min-width:0}
+.week-mark{display:flex;align-items:center;gap:var(--space-2)}
+.week-mark svg{width:30px;height:30px;flex:none}
+.week-mark span{font:600 12px/16px var(--font-sans);letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-muted)}
+.week h3{font-size:20px;line-height:26px;font-weight:600}
+.week p{color:var(--ink-muted);font-size:15px;line-height:24px}
+.week:last-child .week-mark span{color:var(--brand-orange-ink)}
+.callout{margin-top:var(--space-6);display:grid;grid-template-columns:auto 1fr;gap:var(--space-4);align-items:start;padding:var(--space-4);border-radius:var(--radius-md);background:var(--tint-blue)}
+.callout strong{font-family:var(--font-display);font-size:28px;line-height:1;color:var(--brand-blue-ink);white-space:nowrap}
+.callout p{max-width:70ch}
+@media (max-width:900px){.weeks{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.weeks{grid-template-columns:1fr}.callout{grid-template-columns:1fr}}
+
+/* Case */
+.case{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5);padding:clamp(24px,4vw,48px);border-radius:var(--radius-lg);background:var(--navy);color:var(--on-navy)}
+.case .label{color:var(--brand-orange)}
+.case h3{font-size:clamp(24px,3vw,32px);line-height:1.2;font-weight:600;margin-top:var(--space-2)}
+.case p{color:var(--on-navy-muted)}
+.case dl{margin:0;display:grid;gap:var(--space-3)}
+.case dt{font:600 12px/16px var(--font-sans);letter-spacing:1.5px;text-transform:uppercase;color:var(--on-navy-muted)}
+.case dd{margin:4px 0 0;color:var(--on-navy)}
+@media (max-width:860px){.case{grid-template-columns:1fr}}
+
+/* About + timeline */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,5vw,64px);align-items:start}
+.about-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--radius-lg)}
+.about-copy{display:grid;gap:var(--space-4);min-width:0}
+.about-copy h2{font-size:clamp(28px,4vw,40px);line-height:1.15;font-weight:600}
+.about-copy > p{font-size:18px;line-height:29px;color:var(--ink-muted);max-width:62ch}
+.timeline{list-style:none;margin:var(--space-3) 0 0;padding:0;display:grid;gap:0}
+.timeline li{display:grid;grid-template-columns:96px 1fr;gap:var(--space-3);padding-block:var(--space-3);border-top:1px solid var(--border)}
+.timeline time{font:600 14px/22px var(--font-display);color:var(--brand-blue-ink);font-variant-numeric:tabular-nums}
+.timeline b{display:block;font-weight:600}
+.timeline span{color:var(--ink-muted);font-size:15px;line-height:23px}
+@media (max-width:860px){.about{grid-template-columns:1fr}.about-photo{max-width:360px}}
+
+/* Teaching */
+.teach{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-3);margin-top:var(--space-4)}
+.teach div{padding:var(--space-4);border-radius:var(--radius-md);background:var(--surface-raised);box-shadow:var(--shadow-card)}
+.teach b{display:block;font-family:var(--font-display);font-size:19px;line-height:25px;font-weight:600;margin-bottom:6px}
+.teach span{color:var(--ink-muted);font-size:15px;line-height:23px}
+@media (max-width:760px){.teach{grid-template-columns:1fr}}
+
+/* Gallery */
+.gallery{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:180px;gap:var(--space-3)}
+.gallery figure{margin:0;position:relative;overflow:hidden;border-radius:var(--radius-md);background:var(--border)}
+.gallery img{width:100%;height:100%;object-fit:cover}
+.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 12px 10px;font-size:13px;line-height:18px;color:#f7f6f2;background:linear-gradient(transparent,rgba(11,20,38,.85))}
+.g1{grid-column:span 4;grid-row:span 2}.g2{grid-column:span 2;grid-row:span 2}
+.g3{grid-column:span 2;grid-row:span 2}.g4{grid-column:span 2;grid-row:span 2}.g5{grid-column:span 2;grid-row:span 2}
+@media (max-width:760px){.gallery{grid-template-columns:1fr 1fr;grid-auto-rows:160px}.g1{grid-column:span 2}.g2,.g3,.g4,.g5{grid-column:span 1}}
+
+/* Ebook */
+.ebook{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,5vw,56px);align-items:center}
+.ebook img{width:clamp(160px,22vw,240px);border-radius:var(--radius-sm);box-shadow:var(--shadow-card)}
+.ebook-copy{display:grid;gap:var(--space-3);min-width:0}
+.ebook-copy h2{font-size:clamp(26px,3.6vw,36px);line-height:1.15;font-weight:600}
+.ebook-copy p{color:var(--ink-muted);max-width:60ch}
+.btn-blue{background:var(--brand-blue-ink);color:#fff;justify-self:start}
+.btn-outline{border-color:var(--brand-blue-ink);color:var(--brand-blue-ink)}
+:root[data-theme="dark"] .btn-blue{color:#14213d}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn-blue{color:#14213d}}
+@media (max-width:620px){.ebook{grid-template-columns:1fr}}
+
+/* Contact */
+.contact{background:var(--navy);color:var(--on-navy)}
+.contact .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--space-6);align-items:center}
+.contact h2{font-size:clamp(30px,4.4vw,46px);line-height:1.1;font-weight:700}
+.contact p{color:var(--on-navy-muted);font-size:18px;line-height:28px;margin-top:var(--space-3);max-width:52ch}
+.channels{display:grid;gap:var(--space-3)}
+.channel{display:flex;justify-content:space-between;align-items:center;gap:var(--space-3);padding:18px 20px;border-radius:var(--radius-md);border:1px solid rgba(247,246,242,.18);color:var(--on-navy);text-decoration:none;min-width:0}
+.channel:hover{border-color:var(--brand-orange)}
+.channel b{font-weight:600}
+.channel span{color:var(--on-navy-muted);font-size:14px;overflow-wrap:anywhere;text-align:right}
+.channel.primary{background:var(--brand-orange);border-color:var(--brand-orange);color:#14213d}
+.channel.primary span{color:#14213d}
+@media (max-width:860px){.contact .wrap{grid-template-columns:1fr}}
+
+footer{background:var(--navy);color:var(--on-navy-muted);border-top:1px solid rgba(247,246,242,.08)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:var(--space-3);padding-block:var(--space-5);font-size:13px}
+footer img{height:28px;width:auto}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a href="#inicio" aria-label="Tech SkillUp, início"><img src="logo-dark.svg" alt="Tech SkillUp" width="170" height="34"></a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#trajetoria">Trajetória</a>
+      <a href="#conteudo">Conteúdo</a>
+      <a class="btn btn-primary" href="https://wa.me/5511976977760?text=Ol%C3%A1%20Odair%2C%20vim%20pelo%20site%20da%20Tech%20SkillUp" target="_blank" rel="noopener">Agendar conversa</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="label">Consultoria para startups</span>
+      <h1>A IA acelera seu time quando o <em>processo</em> está pronto para ela</h1>
+      <p class="hero-sub">Ajudo startups pequenas e médias a reformular o processo de desenvolvimento, preparar os líderes de tecnologia e medir o ganho real da IA nas entregas. Seu time executa. Eu acompanho, direciono e meço.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#contato">Agendar uma conversa de 30 minutos</a>
+        <a class="btn btn-ghost" href="#como-funciona">Ver como funciona</a>
+      </div>
+      <ul class="proof" aria-label="Credenciais">
+        <li>25 anos em tecnologia</li>
+        <li>Coordenador da trilha Liderança Técnica no TDC</li>
+        <li>Professor na Conquer</li>
+        <li>E-book na Amazon, nota 4,7 de 5</li>
+      </ul>
+    </div>
+    <figure class="hero-photo">
+      <img src="palco.jpg" alt="Odair Bonin palestrando com microfone em um auditório" width="933" height="1400">
+      <svg class="chev" viewBox="0 0 96 96" aria-hidden="true"><path d="M14 88 L48 60 L82 88" fill="none" stroke="#3B6FE0" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".45"/><path d="M14 62 L48 34 L82 62" fill="none" stroke="#3B6FE0" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".75"/><path d="M14 36 L48 8 L82 36" fill="none" stroke="#E8833A" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <figcaption>Foto: @pri_ramalhoo</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="stats" aria-label="Números">
+  <div class="wrap">
+    <div><strong>25</strong><span>anos em tecnologia, de coordenador a head de TI</span></div>
+    <div><strong>15–60</strong><span>pessoas nos times que liderei</span></div>
+    <div><strong>450+</strong><span>alunos formados na Conquer</span></div>
+    <div><strong>4,7</strong><span>de nota do e-book na Amazon</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">O ponto de partida</span>
+      <h2>Ferramenta de IA todo time já tem. O ganho, quase ninguém mede.</h2>
+    </div>
+    <div class="pains">
+      <article class="pain">
+        <h3>A regra de negócio mora na cabeça de alguém</h3>
+        <p>Sem documentação viva, a IA gera código que quebra o que já funcionava, e cada correção depende de quem lembra o porquê.</p>
+      </article>
+      <article class="pain">
+        <h3>Cada dev usa IA do seu jeito</h3>
+        <p>Não existe esteira comum. A IA produz mais código, o code review vira gargalo e a entrega não acelera de verdade.</p>
+      </article>
+      <article class="pain">
+        <h3>A diretoria pede números para planejar</h3>
+        <p>Quanto a IA reduziu de custo? Quanto aumentou a vazão das demandas que trazem retorno? Sem baseline, não há resposta.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section services" id="servicos">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">Serviços</span>
+      <h2>Três frentes, um objetivo: entregar mais rápido com qualidade medida</h2>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M4 12h16M4 17h7"/><path d="M17 4l3 3-3 3"/></svg>
+        <h3>Processo de desenvolvimento AI First</h3>
+        <p>Reformulo o fluxo do card ao deploy para que a IA trabalhe com contexto, e as pessoas validem o que importa.</p>
+        <ul>
+          <li>Base de conhecimento do sistema e das regras de negócio</li>
+          <li>Desenvolvimento orientado a especificações</li>
+          <li>Esteira de agentes com revisão humana</li>
+        </ul>
+      </article>
+      <article class="card">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18.5 14.5c1.6.9 2.5 2.6 2.5 5.5"/></svg>
+        <h3>Mentoria de líderes de tecnologia</h3>
+        <p>Acompanhamento individual ou em grupo para tech leads, engineering managers e CTOs que precisam liderar a mudança.</p>
+        <ul>
+          <li>Previsibilidade e métricas de entrega</li>
+          <li>Priorização por valor e retorno</li>
+          <li>Formação e engajamento do time</li>
+        </ul>
+      </article>
+      <article class="card">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+        <h3>IA além do código</h3>
+        <p>O mesmo método aplicado a produto, dados e operação, para que a aceleração não fique restrita à engenharia.</p>
+        <ul>
+          <li>Business Intelligence e Analytics</li>
+          <li>Processos ágeis entre áreas</li>
+          <li>Rotinas operacionais com agentes</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="como-funciona">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">Como funciona</span>
+      <h2>Ciclos de quatro semanas, com uma demanda real do seu backlog</h2>
+      <p>Nada de laboratório. Escolhemos juntos uma entrega importante e usamos ela para instalar o método e medir o resultado.</p>
+    </div>
+    <ol class="weeks">
+      <li class="week">
+        <div class="week-mark"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M14 72 L48 44 L82 72" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".35"/></svg><span>Semana 1</span></div>
+        <h3>Diagnóstico e baseline</h3>
+        <p>Mapeamos o fluxo atual e medimos capacidade, velocidade e lacunas do time antes de mudar qualquer coisa.</p>
+      </li>
+      <li class="week">
+        <div class="week-mark"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M14 84 L48 56 L82 84" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".35"/><path d="M14 58 L48 30 L82 58" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".65"/></svg><span>Semana 2</span></div>
+        <h3>Base e método</h3>
+        <p>Montamos a base de conhecimento, o modelo de especificação e os agentes que vão rodar, definidos com o time.</p>
+      </li>
+      <li class="week">
+        <div class="week-mark"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M14 90 L48 62 L82 90" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".35"/><path d="M14 64 L48 36 L82 64" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".65"/><path d="M14 38 L48 10 L82 38" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Semana 3</span></div>
+        <h3>Execução acompanhada</h3>
+        <p>O time entrega a demanda com IA. Eu acompanho de perto, às vezes com a mão no código, às vezes direcionando.</p>
+      </li>
+      <li class="week">
+        <div class="week-mark"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M14 90 L48 62 L82 90" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".35"/><path d="M14 64 L48 36 L82 64" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".65"/><path d="M14 38 L48 10 L82 38" fill="none" style="stroke:var(--brand-orange)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Semana 4</span></div>
+        <h3>Resultado e próximo nível</h3>
+        <p>Comparamos com o baseline, apresentamos os números à liderança e definimos o próximo ciclo.</p>
+      </li>
+    </ol>
+    <div class="callout">
+      <strong>2h × 3</strong>
+      <p>Encontros de duas horas, três vezes por semana, durante o ciclo. Cada ciclo é independente: ao final, você decide se continua, por até três ciclos.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0" id="resultados">
+  <div class="wrap">
+    <div class="case">
+      <div>
+        <span class="label">Resultados que já entreguei</span>
+        <h3>Antes da consultoria, a operação</h3>
+        <p style="margin-top:var(--space-3)">São 25 anos liderando times de 15 a 60 pessoas. Hoje atuo como architecture manager e principal engineer, e levo para as startups o que funcionou em empresas de grande escala.</p>
+      </div>
+      <dl>
+        <div><dt>B2W (Americanas) · SAC</dt><dd>Modernização do sistema de atendimento ao cliente: atendimentos 10x mais eficientes, 20x mais rápidos, com 90% dos casos resolvidos na primeira interação.</dd></div>
+        <div><dt>Nubank · Novo produto</dt><dd>Lançamento do Empréstimo com Garantia de Investimentos, modalidade para pequenos empreendedores.</dd></div>
+        <div><dt>Plataforma de assinaturas · Performance</dt><dd>Melhoria de performance que reduziu em 40% o custo de cada assinatura com certificado.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section services" id="trajetoria">
+  <div class="wrap about">
+    <figure class="about-photo" style="margin:0"><img src="retrato.jpg" alt="Retrato de Odair Bonin de blazer azul" width="563" height="1000"></figure>
+    <div class="about-copy">
+      <span class="label">Quem conduz</span>
+      <h2>Odair Bonin</h2>
+      <p>São 25 anos em tecnologia, passando por coordenação, gerência e head de TI, com times de 15 a 60 pessoas. Atualmente sou architecture manager e principal engineer. Pela Tech SkillUp, ajudo startups a transformar a promessa da IA em entrega medida, e formo líderes de tecnologia em sala de aula.</p>
+      <ol class="timeline">
+        <li><time>Hoje</time><div><b>Architecture manager e principal engineer</b><span>Arquitetura e liderança técnica em produto digital.</span></div></li>
+        <li><time>2026</time><div><b>Fundador, Tech SkillUp</b><span>Consultoria em processo de desenvolvimento AI First e mentoria de líderes.</span></div></li>
+        <li><time>2026</time><div><b>Coordenador e palestrante, TDC São Paulo</b><span>Trilha Liderança Técnica.</span></div></li>
+        <li><time>2023</time><div><b>Professor na Conquer</b><span>Liderança tech, processos ágeis, BI e Analytics. Mais de 450 alunos formados.</span></div></li>
+        <li><time>Podcasts</time><div><b>Criador do Conversa Ágil e do Depende Cast</b><span>Conversas sobre agilidade, liderança e tecnologia. O Depende Cast está no YouTube.</span></div></li>
+        <li><time>Carreira</time><div><b>Coordenador, gerente e head de TI</b><span>Entregas em empresas como B2W (Americanas) e Nubank.</span></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">Sala de aula</span>
+      <h2>Professor na Conquer</h2>
+      <p>Há três anos e meio em sala de aula, com mais de 450 alunos formados. Ensinar obriga a transformar experiência em método, e é esse método que levo para os times.</p>
+    </div>
+    <div class="teach">
+      <div><b>Liderança tech</b><span>Gestão de times de engenharia, carreira e tomada de decisão.</span></div>
+      <div><b>Processos ágeis</b><span>Fluxo, previsibilidade e melhoria contínua na prática.</span></div>
+      <div><b>BI e Analytics</b><span>Dados para decidir, do indicador ao painel.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0" id="conteudo">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">Palcos e conversas</span>
+      <h2>Compartilhando o que funciona na prática</h2>
+      <p>Coordeno a trilha de Liderança Técnica no TDC, crio os podcasts Conversa Ágil e Depende Cast e falo em eventos como o HJ25.</p>
+    </div>
+    <div class="gallery">
+      <figure class="g1"><img src="tdc-palco.jpg" alt="Odair falando ao microfone no The Developer's Conference" loading="lazy" width="1200" height="674"><figcaption>The Developer's Conference</figcaption></figure>
+      <figure class="g2"><img src="tdc-podcast.jpg" alt="Odair gravando podcast no TDC São Paulo 2026" loading="lazy" width="667" height="1000"><figcaption>Podcast no TDC São Paulo 2026</figcaption></figure>
+      <figure class="g3"><img src="podcast-ia.jpg" alt="Odair em entrevista de podcast com fones e microfone" loading="lazy" width="900" height="900"><figcaption>Podcast no TDC</figcaption></figure>
+      <figure class="g4"><img src="conferencia.jpg" alt="Odair no evento HJ25 em Concórdia, Santa Catarina" loading="lazy" width="1200" height="675"><figcaption>HJ25, Concórdia (SC)</figcaption></figure>
+      <figure class="g5"><img src="estudio.jpg" alt="Odair em estúdio de gravação de aulas" loading="lazy" width="1200" height="675"><figcaption>Gravação de aulas</figcaption></figure>
+    </div>
+
+    <div class="ebook" style="margin-top:var(--space-6)">
+      <img src="ebook.jpg" alt="Capa do e-book As verdades não ditas sobre a liderança em tecnologia" width="440" height="700" loading="lazy">
+      <div class="ebook-copy">
+        <span class="label">E-book</span>
+        <h2>As verdades não ditas sobre a liderança em tecnologia</h2>
+        <p>Hacks para vencer no jogo, escritos para engineering managers e líderes de tecnologia que querem resultado sem perder o time no caminho.</p>
+        <p class="rating"><strong>4,7 de 5</strong> na Amazon</p>
+        <div style="display:flex;flex-wrap:wrap;gap:var(--space-3)">
+          <a class="btn btn-blue" href="https://hotmart.com/pt-br/marketplace/produtos/as-verdades-nao-ditas-na-lideranca-de-tecnologia/E101351197B" target="_blank" rel="noopener">Comprar na Hotmart</a>
+          <a class="btn btn-outline" href="https://www.amazon.com.br/s?k=As+verdades+n%C3%A3o+ditas+lideran%C3%A7a+tecnologia+Odair+Bonin" target="_blank" rel="noopener">Ver na Amazon</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contato">
+  <div class="wrap">
+    <div>
+      <span class="label" style="color:var(--brand-orange)">Contato</span>
+      <h2 style="margin-top:var(--space-2)">Conte em que ponto seu time está</h2>
+      <p>Uma conversa de 30 minutos, sem custo, para entender seu contexto e dizer com franqueza se um ciclo de quatro semanas faz sentido agora.</p>
+    </div>
+    <div class="channels">
+      <a class="channel primary" href="https://wa.me/5511976977760?text=Ol%C3%A1%20Odair%2C%20vim%20pelo%20site%20da%20Tech%20SkillUp" target="_blank" rel="noopener"><b>WhatsApp</b><span>(11) 97697-7760</span></a>
+      <a class="channel" href="https://www.linkedin.com/in/odairbonin" target="_blank" rel="noopener"><b>LinkedIn</b><span>linkedin.com/in/odairbonin</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="logo-dark.svg" alt="Tech SkillUp" width="140" height="28">
+    <span>© 2026 Tech SkillUp · Odair Bonin</span>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Tech SkillUp","url":"https://techskillup.com.br/","founder":{"@type":"Person","name":"Odair Bonin"},"description":"Consultoria para startups em processo de desenvolvimento AI First, mentoria de líderes de tecnologia e IA aplicada a outras áreas.","areaServed":"BR","telephone":"+55-11-97697-7760","sameAs":["https://www.linkedin.com/in/odairbonin"]}
+</script>
+</body>
+</html>
