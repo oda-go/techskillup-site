@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Tech SkillUp | Odair Bonin</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Consultoria para startups pequenas e médias que querem a aceleração da IA com método: processo de desenvolvimento AI First, mentoria de líderes de tecnologia e resultado medido.">
-<meta property="og:title" content="Tech SkillUp | IA como acelerador, com método">
-<meta property="og:description" content="Consultoria de Odair Bonin para startups: processo de desenvolvimento AI First, mentoria de líderes de tecnologia e resultado medido em ciclos de quatro semanas.">
+<meta name="description" content="Mentoria em IA e em liderança para pequenas empresas e startups. Odair Bonin, 25 anos em tecnologia, ajuda donos e líderes a aplicar IA no dia a dia e a formar quem lidera os times.">
+<meta property="og:title" content="Tech SkillUp | Mentoria em IA e liderança para pequenas empresas">
+<meta property="og:description" content="Mentoria para donos e líderes de pequenas empresas que querem usar IA com método e preparar quem lidera os times. Diagnóstico gratuito de 30 minutos.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://techskillup.com.br/">
 <meta property="og:image" content="https://techskillup.com.br/palco.jpg">
@@ -73,7 +73,7 @@ p{margin:0}
 .btn-primary:hover{filter:brightness(1.06)}
 .btn-ghost{border-color:rgba(247,246,242,.35);color:var(--on-navy)}
 .btn-ghost:hover{border-color:var(--on-navy)}
-.nav .btn{padding:10px 16px;font-size:14px;color:#14213d}
+.nav .btn{padding:10px 16px;font-size:14px;color:#14213d;white-space:nowrap}
 @media (max-width:860px){.nav a:not(.btn){display:none}}
 
 /* Hero */
@@ -176,7 +176,7 @@ p{margin:0}
 
 /* Ebook */
 .ebook{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,5vw,56px);align-items:center}
-.ebook img{width:clamp(160px,22vw,240px);border-radius:var(--radius-sm);box-shadow:var(--shadow-card)}
+.ebook img{width:clamp(160px,22vw,240px);height:auto;aspect-ratio:440/700;object-fit:cover;border-radius:var(--radius-sm);box-shadow:var(--shadow-card)}
 .ebook-copy{display:grid;gap:var(--space-3);min-width:0}
 .ebook-copy h2{font-size:clamp(26px,3.6vw,36px);line-height:1.15;font-weight:600}
 .ebook-copy p{color:var(--ink-muted);max-width:60ch}
@@ -186,9 +186,21 @@ p{margin:0}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn-blue{color:#14213d}}
 @media (max-width:620px){.ebook{grid-template-columns:1fr}}
 
+/* Mentorias */
+.cards-2{grid-template-columns:repeat(2,1fr)}
+.card .for{font-size:13px;line-height:18px;font-weight:600;color:var(--brand-blue-ink);padding-top:var(--space-2);border-top:1px solid var(--border)}
+.extra{margin-top:var(--space-4);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-3);padding:var(--space-4);border-radius:var(--radius-md);background:var(--tint-blue)}
+.extra div{display:grid;gap:4px;max-width:70ch;min-width:0}
+.extra b{font-family:var(--font-display);font-size:18px}
+.extra span{color:var(--ink-muted);font-size:15px;line-height:23px}
+.extra a{font-weight:600;color:var(--brand-blue-ink)}
+@media (max-width:900px){.cards-2{grid-template-columns:1fr}}
+
 /* Contact */
 .contact{background:var(--navy);color:var(--on-navy)}
-.contact .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--space-6);align-items:center}
+.contact .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:var(--space-6);align-items:start}
+.contact-copy{display:grid;gap:var(--space-3);min-width:0}
+.contact-copy .channels{margin-top:var(--space-3)}
 .contact h2{font-size:clamp(30px,4.4vw,46px);line-height:1.1;font-weight:700}
 .contact p{color:var(--on-navy-muted);font-size:18px;line-height:28px;margin-top:var(--space-3);max-width:52ch}
 .channels{display:grid;gap:var(--space-3)}
@@ -200,6 +212,26 @@ p{margin:0}
 .channel.primary span{color:#14213d}
 @media (max-width:860px){.contact .wrap{grid-template-columns:1fr}}
 
+.lead{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3);padding:clamp(20px,3vw,32px);border-radius:var(--radius-lg);background:var(--surface-raised);color:var(--ink);min-width:0}
+.lead .field{display:grid;gap:6px;min-width:0;margin:0;padding:0;border:0}
+.lead .field:nth-child(n+5){grid-column:1/-1}
+.lead label,.lead legend{font-size:14px;font-weight:600;padding:0}
+.lead .opt{font-weight:400;color:var(--ink-muted)}
+.lead input,.lead select,.lead textarea{font:400 16px/24px var(--font-sans);color:var(--ink);background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;width:100%}
+.lead input:focus,.lead select:focus,.lead textarea:focus{outline:2px solid var(--brand-blue);outline-offset:1px;border-color:transparent}
+.lead [aria-invalid="true"]{border-color:var(--brand-orange-ink)}
+.chips{display:flex;flex-wrap:wrap;gap:var(--space-2);margin-top:4px}
+.chips label{display:flex;align-items:center;gap:6px;font-weight:400;font-size:15px;padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-pill);cursor:pointer;background:var(--surface)}
+.chips label:has(input:checked){border-color:var(--brand-blue-ink);background:var(--tint-blue);font-weight:600}
+.chips input{width:auto;accent-color:var(--brand-blue-ink)}
+.lead p{margin:0;max-width:none}
+.lead .consent{grid-column:1/-1;font-size:13px;line-height:18px;color:var(--ink-muted)}
+.lead button{grid-column:1/-1;justify-content:center;font-size:16px}
+.lead button[disabled]{opacity:.6;cursor:wait}
+.lead .form-msg{grid-column:1/-1;font-size:15px;line-height:22px;min-height:1em;color:var(--ink)}
+.lead .form-msg.ok{color:var(--brand-blue-ink);font-weight:600}
+.lead .form-msg.err{color:var(--brand-orange-ink);font-weight:600}
+@media (max-width:620px){.lead{grid-template-columns:1fr}}
 footer{background:var(--navy);color:var(--on-navy-muted);border-top:1px solid rgba(247,246,242,.08)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:var(--space-3);padding-block:var(--space-5);font-size:13px}
 footer img{height:28px;width:auto}
@@ -211,11 +243,11 @@ footer img{height:28px;width:auto}
   <div class="wrap">
     <a href="#inicio" aria-label="Tech SkillUp, início"><img src="logo-dark.svg" alt="Tech SkillUp" width="170" height="34"></a>
     <nav class="nav" aria-label="Principal">
-      <a href="#servicos">Serviços</a>
+      <a href="#mentorias">Mentorias</a>
       <a href="#como-funciona">Como funciona</a>
       <a href="#trajetoria">Trajetória</a>
       <a href="#conteudo">Conteúdo</a>
-      <a class="btn btn-primary" href="https://wa.me/5511976977760?text=Ol%C3%A1%20Odair%2C%20vim%20pelo%20site%20da%20Tech%20SkillUp" target="_blank" rel="noopener">Agendar conversa</a>
+      <a class="btn btn-primary" href="#contato">Diagnóstico gratuito</a>
     </nav>
   </div>
 </header>
@@ -224,12 +256,12 @@ footer img{height:28px;width:auto}
 <section class="hero">
   <div class="wrap">
     <div class="hero-copy">
-      <span class="label">Consultoria para startups</span>
-      <h1>A IA acelera seu time quando o <em>processo</em> está pronto para ela</h1>
-      <p class="hero-sub">Ajudo startups pequenas e médias a reformular o processo de desenvolvimento, preparar os líderes de tecnologia e medir o ganho real da IA nas entregas. Seu time executa. Eu acompanho, direciono e meço.</p>
+      <span class="label">Mentoria para pequenas empresas</span>
+      <h1>Use IA como uma grande empresa, no <em>tamanho</em> da sua</h1>
+      <p class="hero-sub">Mentoria para donos e líderes de pequenas empresas e startups que querem tirar a IA do discurso e colocar no dia a dia, e preparar quem lidera os times para essa mudança. Experiência de B2W e Nubank, aplicada à realidade de um time enxuto.</p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="#contato">Agendar uma conversa de 30 minutos</a>
-        <a class="btn btn-ghost" href="#como-funciona">Ver como funciona</a>
+        <a class="btn btn-primary" href="#contato">Quero um diagnóstico gratuito</a>
+        <a class="btn btn-ghost" href="#mentorias">Ver as mentorias</a>
       </div>
       <ul class="proof" aria-label="Credenciais">
         <li>25 anos em tecnologia</li>
@@ -259,62 +291,64 @@ footer img{height:28px;width:auto}
   <div class="wrap">
     <div class="section-head">
       <span class="label">O ponto de partida</span>
-      <h2>Ferramenta de IA todo time já tem. O ganho, quase ninguém mede.</h2>
+      <h2>Todo mundo fala de IA. Pouca empresa pequena sabe por onde começar.</h2>
     </div>
     <div class="pains">
       <article class="pain">
-        <h3>A regra de negócio mora na cabeça de alguém</h3>
-        <p>Sem documentação viva, a IA gera código que quebra o que já funcionava, e cada correção depende de quem lembra o porquê.</p>
+        <h3>Ferramenta assinada, ninguém usa</h3>
+        <p>A empresa paga por ChatGPT, Copilot ou outra ferramenta, mas cada pessoa usa de um jeito e o ganho não aparece no resultado.</p>
       </article>
       <article class="pain">
-        <h3>Cada dev usa IA do seu jeito</h3>
-        <p>Não existe esteira comum. A IA produz mais código, o code review vira gargalo e a entrega não acelera de verdade.</p>
+        <h3>O dono ainda resolve tudo</h3>
+        <p>Atendimento, propostas, relatórios e decisões passam pela mesma pessoa. Falta tempo para pensar no negócio e falta líder preparado para assumir.</p>
       </article>
       <article class="pain">
-        <h3>A diretoria pede números para planejar</h3>
-        <p>Quanto a IA reduziu de custo? Quanto aumentou a vazão das demandas que trazem retorno? Sem baseline, não há resposta.</p>
+        <h3>Medo de errar o investimento</h3>
+        <p>Contratar consultoria grande não cabe no orçamento. Contratar no escuro também não. Você precisa de um plano do tamanho da sua operação.</p>
       </article>
     </div>
   </div>
 </section>
 
-<section class="section services" id="servicos">
+<section class="section services" id="mentorias">
   <div class="wrap">
     <div class="section-head">
-      <span class="label">Serviços</span>
-      <h2>Três frentes, um objetivo: entregar mais rápido com qualidade medida</h2>
+      <span class="label">Mentorias</span>
+      <h2>Duas frentes que andam juntas: a IA no negócio e as pessoas que lideram</h2>
+      <p>Você escolhe por onde começar. No diagnóstico gratuito, a gente identifica qual delas traz retorno mais rápido para o seu caso.</p>
     </div>
-    <div class="cards">
-      <article class="card">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M4 12h16M4 17h7"/><path d="M17 4l3 3-3 3"/></svg>
-        <h3>Processo de desenvolvimento AI First</h3>
-        <p>Reformulo o fluxo do card ao deploy para que a IA trabalhe com contexto, e as pessoas validem o que importa.</p>
+    <div class="cards cards-2">
+      <article class="card card-main">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3.5"/></svg>
+        <h3>Mentoria em IA para o negócio</h3>
+        <p>Para donos e gestores que querem aplicar IA onde dá retorno, sem depender de um time de tecnologia grande.</p>
         <ul>
-          <li>Base de conhecimento do sistema e das regras de negócio</li>
-          <li>Desenvolvimento orientado a especificações</li>
-          <li>Esteira de agentes com revisão humana</li>
+          <li>Mapa dos processos com maior ganho: atendimento, vendas, propostas, operação</li>
+          <li>Escolha das ferramentas certas para o seu orçamento</li>
+          <li>Primeiras automações no ar, com o seu time junto</li>
+          <li>Regras simples de uso seguro e de qualidade</li>
         </ul>
+        <span class="for">Para quem: empresas de 2 a 200 pessoas, de qualquer setor</span>
       </article>
-      <article class="card">
+      <article class="card card-main">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18.5 14.5c1.6.9 2.5 2.6 2.5 5.5"/></svg>
-        <h3>Mentoria de líderes de tecnologia</h3>
-        <p>Acompanhamento individual ou em grupo para tech leads, engineering managers e CTOs que precisam liderar a mudança.</p>
+        <h3>Mentoria de liderança</h3>
+        <p>Para quem lidera times, ou está prestes a liderar, e precisa de resultado sem perder as pessoas no caminho.</p>
         <ul>
-          <li>Previsibilidade e métricas de entrega</li>
-          <li>Priorização por valor e retorno</li>
-          <li>Formação e engajamento do time</li>
+          <li>Delegação e rotina de acompanhamento que funcionam</li>
+          <li>Metas, indicadores e previsibilidade de entrega</li>
+          <li>Feedback, conversas difíceis e formação de novos líderes</li>
+          <li>Como liderar um time que passa a trabalhar com IA</li>
         </ul>
+        <span class="for">Para quem: donos, gestores, tech leads e novos líderes</span>
       </article>
-      <article class="card">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
-        <h3>IA além do código</h3>
-        <p>O mesmo método aplicado a produto, dados e operação, para que a aceleração não fique restrita à engenharia.</p>
-        <ul>
-          <li>Business Intelligence e Analytics</li>
-          <li>Processos ágeis entre áreas</li>
-          <li>Rotinas operacionais com agentes</li>
-        </ul>
-      </article>
+    </div>
+    <div class="extra">
+      <div>
+        <b>Tem um time de tecnologia?</b>
+        <span>Também acompanho times de desenvolvimento na adoção de IA em todo o processo, do card ao deploy, com resultado medido em ciclos de quatro semanas.</span>
+      </div>
+      <a href="#contato">Falar sobre o meu time</a>
     </div>
   </div>
 </section>
@@ -323,34 +357,34 @@ footer img{height:28px;width:auto}
   <div class="wrap">
     <div class="section-head">
       <span class="label">Como funciona</span>
-      <h2>Ciclos de quatro semanas, com uma demanda real do seu backlog</h2>
-      <p>Nada de laboratório. Escolhemos juntos uma entrega importante e usamos ela para instalar o método e medir o resultado.</p>
+      <h2>Do diagnóstico ao resultado em ciclos de quatro semanas</h2>
+      <p>Nada de teoria solta. Cada ciclo parte de um problema real da sua empresa e termina com algo funcionando e medido.</p>
     </div>
     <ol class="weeks">
       <li class="week">
-        <div class="week-mark"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M14 72 L48 44 L82 72" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".35"/></svg><span>Semana 1</span></div>
-        <h3>Diagnóstico e baseline</h3>
-        <p>Mapeamos o fluxo atual e medimos capacidade, velocidade e lacunas do time antes de mudar qualquer coisa.</p>
+        <div class="week-mark"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M14 72 L48 44 L82 72" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".35"/></svg><span>Antes de começar</span></div>
+        <h3>Diagnóstico gratuito</h3>
+        <p>Uma conversa de 30 minutos para entender o momento da empresa e dizer com franqueza se a mentoria faz sentido agora.</p>
       </li>
       <li class="week">
-        <div class="week-mark"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M14 84 L48 56 L82 84" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".35"/><path d="M14 58 L48 30 L82 58" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".65"/></svg><span>Semana 2</span></div>
-        <h3>Base e método</h3>
-        <p>Montamos a base de conhecimento, o modelo de especificação e os agentes que vão rodar, definidos com o time.</p>
+        <div class="week-mark"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M14 84 L48 56 L82 84" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".35"/><path d="M14 58 L48 30 L82 58" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".65"/></svg><span>Semana 1</span></div>
+        <h3>Mapa e prioridades</h3>
+        <p>Levantamos processos, gargalos e pessoas-chave. Escolhemos as duas ou três frentes com maior retorno.</p>
       </li>
       <li class="week">
-        <div class="week-mark"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M14 90 L48 62 L82 90" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".35"/><path d="M14 64 L48 36 L82 64" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".65"/><path d="M14 38 L48 10 L82 38" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Semana 3</span></div>
-        <h3>Execução acompanhada</h3>
-        <p>O time entrega a demanda com IA. Eu acompanho de perto, às vezes com a mão no código, às vezes direcionando.</p>
+        <div class="week-mark"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M14 90 L48 62 L82 90" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".35"/><path d="M14 64 L48 36 L82 64" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".65"/><path d="M14 38 L48 10 L82 38" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Semanas 2 e 3</span></div>
+        <h3>Mão na massa acompanhada</h3>
+        <p>Você e o seu time aplicam, com a minha orientação: primeiras automações, novas rotinas de liderança, ajustes semana a semana.</p>
       </li>
       <li class="week">
         <div class="week-mark"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M14 90 L48 62 L82 90" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".35"/><path d="M14 64 L48 36 L82 64" fill="none" style="stroke:var(--brand-blue)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".65"/><path d="M14 38 L48 10 L82 38" fill="none" style="stroke:var(--brand-orange)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Semana 4</span></div>
         <h3>Resultado e próximo nível</h3>
-        <p>Comparamos com o baseline, apresentamos os números à liderança e definimos o próximo ciclo.</p>
+        <p>Comparamos o antes e o depois, registramos o que ficou de método e definimos se vale um novo ciclo.</p>
       </li>
     </ol>
     <div class="callout">
-      <strong>2h × 3</strong>
-      <p>Encontros de duas horas, três vezes por semana, durante o ciclo. Cada ciclo é independente: ao final, você decide se continua, por até três ciclos.</p>
+      <strong>Sem fidelidade</strong>
+      <p>Cada ciclo é independente. Ao final de quatro semanas, você decide se continua, com base no que foi medido.</p>
     </div>
   </div>
 </section>
@@ -439,15 +473,38 @@ footer img{height:28px;width:auto}
 
 <section class="section contact" id="contato">
   <div class="wrap">
-    <div>
-      <span class="label" style="color:var(--brand-orange)">Contato</span>
-      <h2 style="margin-top:var(--space-2)">Conte em que ponto seu time está</h2>
-      <p>Uma conversa de 30 minutos, sem custo, para entender seu contexto e dizer com franqueza se um ciclo de quatro semanas faz sentido agora.</p>
+    <div class="contact-copy">
+      <span class="label" style="color:var(--brand-orange)">Diagnóstico gratuito</span>
+      <h2 style="margin-top:var(--space-2)">Conte em que ponto sua empresa está</h2>
+      <p>Responda em um minuto. Eu leio pessoalmente e retorno pelo WhatsApp para marcar uma conversa de 30 minutos, sem custo e sem compromisso.</p>
+      <div class="channels">
+        <a class="channel" href="https://wa.me/5511976977760?text=Ol%C3%A1%20Odair%2C%20vim%20pelo%20site%20da%20Tech%20SkillUp" target="_blank" rel="noopener"><b>Prefere falar direto?</b><span>WhatsApp (11) 97697-7760</span></a>
+        <a class="channel" href="https://www.linkedin.com/in/odairbonin" target="_blank" rel="noopener"><b>LinkedIn</b><span>linkedin.com/in/odairbonin</span></a>
+      </div>
     </div>
-    <div class="channels">
-      <a class="channel primary" href="https://wa.me/5511976977760?text=Ol%C3%A1%20Odair%2C%20vim%20pelo%20site%20da%20Tech%20SkillUp" target="_blank" rel="noopener"><b>WhatsApp</b><span>(11) 97697-7760</span></a>
-      <a class="channel" href="https://www.linkedin.com/in/odairbonin" target="_blank" rel="noopener"><b>LinkedIn</b><span>linkedin.com/in/odairbonin</span></a>
-    </div>
+    <form class="lead" id="lead-form" novalidate>
+      <div class="field"><label for="f-nome">Seu nome</label><input id="f-nome" name="nome" autocomplete="name" required></div>
+      <div class="field"><label for="f-empresa">Empresa</label><input id="f-empresa" name="empresa" autocomplete="organization" required></div>
+      <div class="field"><label for="f-whats">WhatsApp</label><input id="f-whats" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(11) 90000-0000" required></div>
+      <div class="field"><label for="f-tamanho">Tamanho da empresa</label>
+        <select id="f-tamanho" name="tamanho" required>
+          <option value="">Selecione</option>
+          <option>Só eu</option><option>2 a 10 pessoas</option><option>11 a 50 pessoas</option><option>51 a 200 pessoas</option><option>Mais de 200 pessoas</option>
+        </select></div>
+      <fieldset class="field">
+        <legend>O que você procura?</legend>
+        <div class="chips">
+          <label><input type="radio" name="interesse" value="Mentoria em IA para o negócio" id="f-int-ia" required> IA no negócio</label>
+          <label><input type="radio" name="interesse" value="Mentoria de liderança" id="f-int-lid"> Liderança</label>
+          <label><input type="radio" name="interesse" value="Time de tecnologia com IA" id="f-int-tech"> Time de tecnologia</label>
+          <label><input type="radio" name="interesse" value="Ainda não sei" id="f-int-nd"> Ainda não sei</label>
+        </div>
+      </fieldset>
+      <div class="field"><label for="f-desafio">Qual o maior desafio hoje? <span class="opt">(opcional)</span></label><textarea id="f-desafio" name="desafio" rows="3"></textarea></div>
+      <p class="consent">Ao enviar, você autoriza o contato da Tech SkillUp sobre este pedido. Seus dados não são compartilhados.</p>
+      <button class="btn btn-primary" type="submit" id="f-enviar">Quero meu diagnóstico</button>
+      <p class="form-msg" id="f-msg" role="status" aria-live="polite"></p>
+    </form>
   </div>
 </section>
 </main>
@@ -459,6 +516,42 @@ footer img{height:28px;width:auto}
   </div>
 </footer>
 
+<script>
+(function(){
+  var WEBHOOK = "https://n8n.odatech.cloud/webhook/techskillup-lead"; /* webhook do n8n que recebe os leads */
+  var WA = "5511976977760";
+  var form = document.getElementById("lead-form");
+  var msg = document.getElementById("f-msg");
+  var btn = document.getElementById("f-enviar");
+  function val(n){ var el = form.elements[n]; return el ? (el.value || "").trim() : ""; }
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var ok = true;
+    ["nome","empresa","whatsapp","tamanho"].forEach(function(n){
+      var el = form.elements[n]; var bad = !val(n) || (n==="whatsapp" && val(n).replace(/\D/g,"").length < 10);
+      el.setAttribute("aria-invalid", bad ? "true" : "false"); if (bad) ok = false;
+    });
+    if (!val("interesse")) ok = false;
+    if (!ok){ msg.className = "form-msg err"; msg.textContent = "Preencha nome, empresa, WhatsApp com DDD, tamanho da empresa e o que você procura."; return; }
+    var data = { nome: val("nome"), empresa: val("empresa"), whatsapp: val("whatsapp"), tamanho: val("tamanho"), interesse: val("interesse"), desafio: val("desafio"), origem: location.href, enviado_em: new Date().toISOString() };
+    var texto = "Olá Odair, vim pelo site da Tech SkillUp.\nNome: " + data.nome + "\nEmpresa: " + data.empresa + " (" + data.tamanho + ")\nInteresse: " + data.interesse + (data.desafio ? "\nDesafio: " + data.desafio : "");
+    var waLink = "https://wa.me/" + WA + "?text=" + encodeURIComponent(texto);
+    function fallback(){
+      msg.className = "form-msg err";
+      msg.innerHTML = "Não consegui registrar automaticamente. <a href=\"" + waLink + "\" target=\"_blank\" rel=\"noopener\">Envie seus dados pelo WhatsApp</a> com um clique.";
+      btn.disabled = false;
+    }
+    if (!WEBHOOK){ fallback(); return; }
+    btn.disabled = true; msg.className = "form-msg"; msg.textContent = "Enviando…";
+    fetch(WEBHOOK, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })
+      .then(function(r){ if (!r.ok) throw new Error(r.status);
+        form.reset(); btn.disabled = false;
+        msg.className = "form-msg ok"; msg.textContent = "Recebido, " + data.nome.split(" ")[0] + ". Vou te chamar no WhatsApp em até um dia útil.";
+      })
+      .catch(fallback);
+  });
+})();
+</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Tech SkillUp","url":"https://techskillup.com.br/","founder":{"@type":"Person","name":"Odair Bonin"},"description":"Consultoria para startups em processo de desenvolvimento AI First, mentoria de líderes de tecnologia e IA aplicada a outras áreas.","areaServed":"BR","telephone":"+55-11-97697-7760","sameAs":["https://www.linkedin.com/in/odairbonin"]}
 </script>
